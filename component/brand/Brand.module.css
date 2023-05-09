@@ -1,0 +1,23 @@
+
+
+.brand_div{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    place-items: center;
+}
+
+.brand h3 {
+    text-align: left;
+    font-size: clamp(17px, 5vw, 27px);
+    color: var(--Heading-color);
+    padding-block: 30px;
+}
+.brand_div img{
+    height: clamp(40px, 10vw, 100px);
+}
+
+@media (max-width: 768px) {
+    .brand_div{
+        grid-template-columns: repeat(4,1fr);
+    }
+}

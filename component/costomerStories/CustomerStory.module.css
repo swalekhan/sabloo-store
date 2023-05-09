@@ -1,0 +1,56 @@
+
+
+
+
+.customer_story{
+    padding: 20px 40px;
+    background: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.customer_story .quote{
+    max-width: 20px;
+    position: relative;
+    bottom: -15px;
+    display: block;
+    left:20px;
+    z-index: 2;
+}
+.customer_content{
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    opacity: 0.8;
+    padding: 20px;
+    box-shadow: 2px 2px 5px 0px #5a5959;
+}
+
+.customer_info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: -50px;
+    z-index: 3;
+}
+
+.customer_name h4{
+    text-align: center;
+    font-size: 17px;
+}
+.customer_name p {
+    text-align: center;
+    color: #333;
+}
+.customer_img{
+   max-width: 100px;
+    border-radius: 50%;
+}
+
+/* @media (min-width:750px){
+    .customer_story{
+        width: 400px;
+    }     
+} */

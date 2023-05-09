@@ -1,0 +1,260 @@
+.navbar {
+    top: 0;
+    position: sticky;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 4px 2px 3px 0px #00000014;
+    z-index: 2;
+}
+
+.navbar svg {
+    color: var(--main-color);
+}
+
+.nav_inner {
+    display: grid;
+    grid-template-columns: 220px auto 300px;
+}
+
+
+.nav_left {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav_left img {
+    width: 150px;
+    height: clamp(40px, 5vw, 50px);
+}
+
+.nav_left svg {
+    margin-right: 10px;
+    display: none;
+}
+
+.search {
+    border: 1px solid whitesmoke;
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.search:hover {
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+.search input {
+    max-width: 100%;
+    width: 95%;
+    height: 35px;
+    border: 0px;
+    outline: 0px;
+    background-color: whitesmoke;
+}
+
+.search_icon {
+    /* border: 2px solid red; */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.nav_right {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav_right_icon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+
+.nav_right_icon svg {
+    margin-top: 2px;
+    font-size: clamp(16px, 3vw, 20px);
+}
+
+.nav_right_icon p {
+    margin-top: 4px;
+    font-size: clamp(14px, 2vh, 15px);
+    color: #888;
+}
+
+
+/* .nav_links................... */
+
+.nav_links {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_links li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.nav_link{
+    color: #999;
+    font-size: 14px;
+    font-weight:500;
+    cursor: pointer;
+}
+.nav_link:hover{
+    color: var(--main-color);
+}
+
+.nav_right_icon {
+    position: relative;
+}
+
+.nav_right_icon h6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: var(--main-color);
+    top: -12px;
+    left: 15px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    animation: progress 0.1s forwards;
+}
+
+@keyframes progress {
+    100% {
+        padding: 2px 5px;
+
+    }
+}
+#cartItem {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar svg {
+        font-size: 20px;
+    }
+
+    .nav_inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search {
+        margin-top: 0px;
+        grid-row: 2;
+        grid-column: 1/-1;
+    }
+
+    .nav_left svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+    }
+
+    .nav_right_icon h6{
+        font-size: 11px;
+    }
+
+    .nav_right_icon {
+        margin-inline: 10px;
+    }
+
+    .nav_right_icon p {
+        display: none;
+    }
+
+    .nav_links{
+        display: none;
+    }
+}
+
+
+
+/* ..................mobile-mune.............................. */
+
+.mobile_manu {
+    position: fixed;
+    top: 0%;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #0b0b0b6f;
+    z-index: 5;
+    transition: transform 300ms ease-in;
+}
+
+.mobile_manu_inner {
+    max-width: 80%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+.mobile_header {
+    color: #fff;
+    background-color: var(--main-color);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile_header svg {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.mobile_header h4 {
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.mobile_header_left {
+    display: flex;
+}
+
+.mobile_main {
+    padding: 5px;
+}
+
+.mobile_main ul {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile_main li {
+    display: block;
+    padding: 15px 0px 5px 0px;
+    list-style: none;
+    border-bottom: 1px solid whitesmoke;
+    cursor: pointer;
+}
+
+.mobile_main a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.mobile_main a:hover {
+    color: var(--main-color);
+}

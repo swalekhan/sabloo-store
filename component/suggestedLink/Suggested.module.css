@@ -1,0 +1,51 @@
+
+.Suggested {
+    background-color:#eee;
+    padding: 0px 20px;
+}
+
+.Suggested h3 {
+    text-align: left;
+    font-size: clamp(17px, 5vw, 27px);
+    color: var(--Heading-color);
+    padding-block: 30px;
+}
+
+.Suggested ul {
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+    overflow-x: scroll;
+    grid-auto-flow: column;
+    grid-auto-columns:28% ;
+    row-gap: clamp(30px, 5vw,50px);
+    scroll-snap-type: x mandatory;
+}
+.Suggested ul::-webkit-scrollbar{
+    display: none;
+}
+.Suggested ul::-webkit-scrollbar-thumb{
+    color: red;
+}
+.Suggested ul >*{
+    scroll-snap-align: start;
+}
+.Suggested ul li{
+    text-align: center;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.item_content p {
+    color: #444;
+    font-size: clamp(14px, 2vw, 17px);
+}
+.Suggested img {
+    max-width: clamp(50px,10vw, 100px);
+    height:clamp(50px,10vw, 100px);
+    object-fit: cover;
+    border-radius: 50%;
+}

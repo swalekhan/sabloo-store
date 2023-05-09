@@ -1,0 +1,36 @@
+
+
+.whyFromYou_content{
+    padding: 0px 20px;
+}
+
+.whyFromYou_content{
+    column-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    overflow: hidden;
+}
+
+.whyFromYou_item{
+    padding: 10px 0px;
+    margin: clamp(5px, 1vw,10px);
+    border-radius: 10px;
+}
+
+.whyFromYou_img{
+    padding: 10px 10px 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.whyFromYou_item img{
+    margin-bottom: clamp(0px, 1vw, 10px);
+    max-width:clamp(45px, 6vw,100px);
+}
+.whyFromYou_item h4{
+    text-align: center;
+    color: #888;
+    font-weight: 400;
+    font-size: clamp(14px,2vw,20px);
+}
+

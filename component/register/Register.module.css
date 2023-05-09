@@ -1,0 +1,93 @@
+.register {
+    display: flex;
+    margin: 50px;
+    background-color: rgb(4, 120, 159);
+    color: #fff;
+}
+
+.register img {
+    width: clamp(180px, 25vw, 550px);
+}
+
+.register_content {
+    flex: 1;
+}
+
+.register_content h2 {
+    padding: 20px 5px;
+    text-align: center;
+    font-size: 40px
+
+}
+
+.register_content h2::after {
+    display: block;
+    content: "";
+    border-bottom: 2px solid rgb(255, 255, 255);
+    width: 30%;
+    position: relative;
+    left: 33%;
+    margin-top: 20px;
+    clear: both;
+    
+}
+
+.register_content h4{
+    padding: 20px 60px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.register_content div{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.register_content div button{
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+}
+@media (max-width:1150px){
+    .register{
+        margin: 50px 20px;
+    }
+    .register_content h4{
+        font-size: 25px;
+        padding: 20px;
+    }
+    .register_content h2 {
+        font-size: 30px;
+        padding: 5px;
+    }
+    .register_content div{
+        padding: 10px;
+    }
+    .register_content div button{
+        padding: 8px 13px;
+        color: rgb(4, 120, 159);;
+    }
+}
+
+@media (max-width:650px){
+    .register{
+        margin: 40px 10px;
+    }
+    .register_content h4{
+        font-size: 14px;
+        padding: 0px;
+    }
+    .register_content h2 {
+        font-size: 14px;
+    }
+    .register_content div button{
+        margin-top: 15px;
+        padding: 5px 10px;
+        color: rgb(4, 120, 159);
+    }
+}

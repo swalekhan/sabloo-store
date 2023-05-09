@@ -1,0 +1,27 @@
+
+.Category ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    row-gap: clamp(30px, 5vw,50px);
+    
+}
+.Category ul li{
+    padding: 5px;
+    text-align: center;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.item_content p {
+    color: #444;
+    font-size: clamp(14px, 2vw, 17px);
+}
+.Category img {
+    max-width: clamp(50px,10vw, 100px);
+    height:clamp(50px,10vw, 100px);
+    object-fit: cover;
+    border-radius: 50%;
+}
