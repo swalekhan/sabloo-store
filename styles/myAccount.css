@@ -1,0 +1,60 @@
+/* ....................myProfile....................... */
+
+.myProfil_info {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.myProfile_content {
+    background: url("https://www.hippostores.com/images/profile/Profile-card.svg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 50px 100px 50px;
+    border-radius: 15px;
+}
+
+.myProfile_content h4{
+    font-size: 30px;
+}
+
+.myProfile_content h5{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.myProfile_content p{
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.myProfile_content p span{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+@media (max-width:750px){
+    .myProfile_content{
+        padding: 20px 20px 30px 20px;
+    }
+    .myProfile_content h4{
+        font-size: 20px;
+    }
+    
+    .myProfile_content h5{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    .myProfile_content p{
+        font-size: 18px;
+        margin-top: 5px;
+    }
+    
+    .myProfile_content p span{
+        font-size: 16px;
+    }
+    
+}

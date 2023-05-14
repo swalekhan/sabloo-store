@@ -10,7 +10,7 @@ const Card = ({ addCartHandler, ...data }) => {
     const [inputQuant, setInputQuant] = useState(1)
     const [subTotl, setSubTotal] = useState(afterDiscountPrice)
     const { cart } = useSelector(state => state.cart)
-    const findCartItem = cart.find((e) => e.id === item.id)
+    const findCartItem = cart.find((e) => e._id === item._id)
     const router = useRouter();
 
     useEffect(() => {
@@ -24,6 +24,12 @@ const Card = ({ addCartHandler, ...data }) => {
     // ..............callBack..........
     const addToCartHandler = (e) => {
         e.stopPropagation()
+        const isSignup = localStorage.getItem("token") //if user login
+        if (!isSignup) {
+            router.push("/auth/Signup")
+            return
+        }
+
         addCartHandler({
             ...item,
             quantity: inputQuant
@@ -31,7 +37,7 @@ const Card = ({ addCartHandler, ...data }) => {
     }
 
     const cartHandler = () => {
-        router.push(`/ProductDetails/${item?.id}`)
+        router.push(`/ProductDetails/${item?._id}`)
     }
 
     return (
@@ -39,12 +45,12 @@ const Card = ({ addCartHandler, ...data }) => {
             <div className={style.card_mobile}>
                 <div className={style.card_header}>
                     <img src={item?.imgUrl} alt='pic' />
-                    <h4 className={style.disccount}>{item?.discount>=4?item?.discount+"% OFF":"new"}</h4>
+                    <h4 className={style.disccount}>{item?.discount >= 4 ? item?.discount + "% OFF" : "new"}</h4>
                 </div>
 
                 <div className={style.card_main}>
                     <div className={style.card_main_top}>
-                        <h4>{item?.title}</h4>
+                        <h4>{item?.name}</h4>
                         <h5>Brand: <span>{item?.brand}</span></h5>
                     </div>
 

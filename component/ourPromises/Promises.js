@@ -1,5 +1,5 @@
 import style from './Promises.module.css'
-import { ourPromisesData } from '@/data/data';  
+import { ourPromisesData } from '@/utils/data/data';  
 
 const Promises = ({ }) => {
     return (

@@ -11,7 +11,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addItem(state, action) {
-            const find = state.cart.find((item) => item.id === action.payload.id)
+            const find = state.cart.find((item) => item._id === action.payload._id)
             if (find) {
                 find.quantity = +find.quantity + Number(action.payload.quantity)
             } else {
@@ -37,18 +37,18 @@ const cartSlice = createSlice({
         },
 
         removeItem(state, action) {
-            state.cart = state.cart.filter((item) => item.id !== action.payload)
+            state.cart = state.cart.filter((item) => item._id !== action.payload)
         },
 
         increamnetQuantity(state, action) {
-            const find = state.cart.find((item) => item.id === action.payload);
+            const find = state.cart.find((item) => item._id === action.payload);
             if (find) {
                 find.quantity = Number(find.quantity) + 1;
             }
         },
 
         decreamentQuantity(state, action) {
-            const find = state.cart.find((item) => item.id === action.payload);
+            const find = state.cart.find((item) => item._id === action.payload);
             if (find.quantity>1) {
                 find.quantity = Number(find.quantity) - 1;
             }

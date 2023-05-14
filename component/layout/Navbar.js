@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import MobileManu from "./MobileMune"
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import { navLink } from '../../data/data'
+import { navLink } from '../../utils/data/data'
 import { useRouter } from "next/router"
 import MyAccount from "./myAccount/MyAccount"
 
@@ -23,28 +23,45 @@ const Navbar = () => {
     }
 
     const myAccountHandler = () => {
+        const isSignup = localStorage.getItem("token")  //if user login
+        if (!isSignup) {
+            router.push("/auth/Signup")
+            return
+        }
         setShowMyAccount(!showMyAccount)
     }
+
+    // ........................search handler.............
+    const searchHandler = (e) => {
+      e.preventDefault()
+      const query = e.target.search.value.trim()
+      if(query.length<=0){
+        alert("please write something")
+        return
+      }
+      router.push(`/search/${query}`)
+    }
+
     return (
         <>
             {ShowMobileMenu && <MobileManu closeHnadler={closeHnadler} />}
-            {showMyAccount && <MyAccount  closeHnadler={myAccountHandler}/>}
+            {showMyAccount && <MyAccount closeHnadler={myAccountHandler} />}
 
             <nav className={style["navbar"]}>
                 <div className={style.nav_inner}>
 
                     <div className={style.nav_left}>
                         <GiHamburgerMenu onClick={() => setShowMobileMenu(!ShowMobileMenu)} />
-                        <Link href="/"><img src="logo/logo.png.png" /></Link>
+                        <Link href="/"><img src="/logo/logo.png.png" /></Link>
                     </div>
 
-                    <div className={style.search}>
-                        <input type="text" placeholder="Search by Model, Brand, Category, etc" />
-                        <FiSearch className={style.search_icon} />
-                    </div>
+                    <form className={style.search} onSubmit={searchHandler}>
+                            <input  type="text" name="search" placeholder="Search by Model, Brand, Category, etc" required />
+                            <button style={{border:"0px", backgroundColor:"transparent"}} type="submit"><FiSearch className={style.search_icon}/></button>
+                    </form>
 
                     <div className={style.nav_right}>
-                        <Link href="/ContactUs" className={style.nav_right_icon}>
+                        <Link href="/categories/ContactUs" className={style.nav_right_icon}>
                             <FaStore />
                             <p>Store Locator</p>
                         </Link>
@@ -53,8 +70,8 @@ const Navbar = () => {
                             <h6 id={cart.length < 1 ? style.cartItem : ""}>{cart.length}</h6>
                             <p>Cart</p>
                         </Link>
-                        <div href="/Cart" className={style.nav_right_icon}>
-                            <FaUserAlt onClick={myAccountHandler} />
+                        <div className={style.nav_right_icon} onClick={myAccountHandler}>
+                            <FaUserAlt />
                             <p>Login | sign Up</p>
                         </div>
                     </div>

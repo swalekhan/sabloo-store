@@ -2,15 +2,15 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const Layout = (props) => {
-    return (
-     <>
-       <Navbar/>
+  return (
+    <>
+      <Navbar />
       <main>
         {props.children}
       </main>
-      <Footer/>
-     </>
-    )
+      <Footer />
+    </>
+  )
 }
 
 export default Layout;

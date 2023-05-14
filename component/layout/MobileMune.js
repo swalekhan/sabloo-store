@@ -2,16 +2,17 @@ import { BiUserCircle } from "react-icons/Bi"
 import { AiOutlineClose } from "react-icons/Ai"
 import style from "./Navbar.module.css"
 import Link from "next/link"
-import {navLink} from '@/data/data'
+import { navLink } from '@/utils/data/data'
 
 const MobileManu = ({ closeHnadler }) => {
+    const isSignup = JSON.parse(localStorage.getItem("token"))
     return (
         <div className={style.mobile_manu} onClick={closeHnadler}>
             <div className={style.mobile_manu_inner} onClick={(e) => e.stopPropagation()}>
                 <div className={style.mobile_header}>
                     <div className={style.mobile_header_left}>
                         <BiUserCircle />
-                        <h4>Hello,</h4>
+                        <h4>{isSignup?.name ? isSignup?.name : "Hello"}</h4>
                     </div>
                     <div className={style.mobile_header_right}>
                         <AiOutlineClose onClick={closeHnadler} />

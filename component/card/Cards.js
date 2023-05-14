@@ -12,7 +12,7 @@ const Cards = ({ items }) => {
     const addCartHandler = (data) => {
         dispatch(addItem(data))
 
-        if (!showAlert) {
+        if (!showAlert) { // alert..............
             setShowAlert(true)
             setTimeout(() => {
                 setShowAlert(false)

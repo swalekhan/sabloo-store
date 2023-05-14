@@ -1,5 +1,5 @@
 import style from "./WhyFromYou.module.css"
-import { whyFromYou } from "@/data/data"
+import { whyFromYou } from "@/utils/data/data"
 const WhyFromYou = ({title}) => {
     return (
         <div className={style.whyFromYou}>

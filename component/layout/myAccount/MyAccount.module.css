@@ -20,7 +20,7 @@
     border-radius: 5px 5px 0px 0px;
     color: #fff;
     background-color: var(--main-color);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,11 +41,11 @@
 }
 
 .mobile_main {
-    padding: 5px 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
 }
 
 .mobile_main ul {
-    padding: 15px;
+    padding: 5px 15px 15px 15px;
     display: flex;
     flex-direction: column;
 }
@@ -71,6 +71,19 @@
     color: var(--main-color);
 }
 
+.myaccount_logout_btn{
+    border:0px;
+    background-color: transparent;
+    outline: 0px;
+    text-align: left;
+    font-size: 17px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.myaccount_logout_btn:hover{
+    color: var(--main-color);
+}
 @media (max-width:650px){
     .mobile_manu_inner{
         top: 60px;

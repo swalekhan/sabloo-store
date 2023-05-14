@@ -1,0 +1,30 @@
+
+
+.ProductIcon{
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ProductIcon img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.ProductIcon img:hover{
+    box-shadow: 0px 2px 5px 0px rgb(241, 140, 7);
+}
+.ProductIcon p{
+    color: rgb(241, 140, 7);
+    font-weight: 500;
+}
+
+@media (max-width:650px){
+    .ProductIcon img{
+        width: 50px;
+        height: 50px;
+    }
+    .ProductIcon p{
+        font-size: 14px;
+    }
+}

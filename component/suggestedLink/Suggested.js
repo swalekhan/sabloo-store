@@ -1,6 +1,6 @@
 import style from './Suggested.module.css'
 import Link from 'next/link'
-import { suggestedLink } from '@/data/data'
+import { suggestedLink } from '@/utils/data/data'
 
 const Sugggested = ({title}) => {
     return (
