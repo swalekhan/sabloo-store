@@ -1,5 +1,5 @@
-import { BiUserCircle } from "react-icons/Bi"
-import { AiOutlineClose } from "react-icons/Ai"
+import { BiUserCircle } from "react-icons/bi"
+import { AiOutlineClose } from "react-icons/ai"
 import style from "./Navbar.module.css"
 import Link from "next/link"
 import { navLink } from '@/utils/data/data'

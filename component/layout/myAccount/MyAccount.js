@@ -1,6 +1,6 @@
 
-import { BiUserCircle } from "react-icons/Bi"
-import { AiOutlineClose } from "react-icons/Ai"
+import { BiUserCircle } from "react-icons/bi"
+import { AiOutlineClose } from "react-icons/ai"
 import style from "./MyAccount.module.css"
 import Link from "next/link"
 import { myAccount } from '@/utils/data/data'
