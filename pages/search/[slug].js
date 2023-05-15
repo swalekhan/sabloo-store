@@ -18,7 +18,7 @@ const Search = ({ results }) => {
 export default Search
 
 export async function getServerSideProps({ query }) {
-    const res = await fetch(`http://localhost:8080/search/${query.slug}`);
+    const res = await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/search/${query.slug}`);
     const results = await res.json();
     return {
         props: {

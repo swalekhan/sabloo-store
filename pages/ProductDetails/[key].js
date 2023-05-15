@@ -129,7 +129,6 @@ const Key = ({ item , similiarProducts}) => {
         </div>
     )
 }
-export default Key
 
 export async function getStaticPaths() {
     // Fetch a list of product IDs from your API
@@ -142,12 +141,11 @@ export async function getStaticPaths() {
     return { paths, fallback: false };
 }
 
-
 export async function getStaticProps({ params }) {
     // Fetch the product data from your API using the ID
-    const response= await fetch(`http://localhost:8080/productDetail/${params.key}`);
+    const response= await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/productDetail/${params.key}`);
     const data = await response.json();
-    const res = await fetch(`http://localhost:8080/products/${data.category}`);
+    const res = await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/products/${data.category}`);
     const similiarProducts = await res.json();
     return { 
         props: { 
@@ -155,3 +153,5 @@ export async function getStaticProps({ params }) {
            similiarProducts,
         } };
 }
+
+export default Key

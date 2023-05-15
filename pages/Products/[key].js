@@ -5,7 +5,7 @@ import Cards from '@/component/card/Cards';
 const arr = [
     { id: 1, title: "Tiles" },
     { id: 1, title: "Paints" },
-    { id: 1, title: "Bath&Fitting" },
+    { id: 1, title: "Bath and Fitting" },
     { id: 1, title: "Sheets" },
     { id: 1, title: "Light" },
     { id: 1, title: "Sanitaryware" },
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // Fetch the product data from your API using the ID
-    const response = await fetch(`http://localhost:8080/products/${params.key}`);
+    const response = await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/products/${params.key}`);
     const data = await response.json();
 
     return { props: { data, } };
