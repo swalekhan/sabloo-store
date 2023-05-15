@@ -6,6 +6,7 @@ import Register from "@/component/register/Register"
 import Sugggested from "@/component/suggestedLink/Suggested"
 import WhyFromYou from "@/component/whyFromYou/WhyFromYou"
 import { bathAndBannerAssets, bathAndBrand, bathAndCategory } from "@/utils/data/categoriesData"
+
 const BathAndFitting = () => {
     return (
       <>

@@ -5,14 +5,15 @@ import { useSelector } from "react-redux"
 
 const Cart = () => {
     const { cart } = useSelector(state => state.cart)
-    const isSignup = localStorage.getItem("token")
+    
     const router = useRouter()
     useEffect(() => {
+        const isSignup = localStorage.getItem("token")
         if (!isSignup) {
             router.push("/auth/Signup")
             return
         }
-    }, [isSignup])
+    }, [])
 
     return (
         <CartCard items={cart} />

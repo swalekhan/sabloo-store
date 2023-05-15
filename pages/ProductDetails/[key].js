@@ -32,7 +32,7 @@ const cardItem = [
 ]
 
 const pincode = ["243638", "110017"]
-const Key = () => {
+const Key = ({ item , similiarProducts}) => {
     const [count, setCount] = useState(1)
     const [input, setInput] = useState("")
     const [pinWarn, setPinWarn] = useState("")
@@ -40,7 +40,7 @@ const Key = () => {
     const dispatch = useDispatch()
     const { key } = router.query
     const { cart } = useSelector(state => state.cart)
-    const item = cardItem.find((item) => item._id === key)
+    // const item = cardItem.find((item) => item._id === key)
     const findInCart = cart.find((e) => e._id === item._id)
 
     const checkHandler = () => {
@@ -64,20 +64,23 @@ const Key = () => {
         }))
     }
 
+    if(router.isFallback){
+        return <p>loading....</p>
+    }
     return (
         <div className="product">
             <div className="productDetail">
                 <div className="product_header">
                     <Carousel infiniteLoop={true} thumbWidth={90} showArrows={false}>
-                        {items?.map((e, i) => (
+                        {item?.imgUrl?.map((e, i) => (
                             <div key={i}>
-                                <img src={"/assets/mob3.png.webp"} alt="pic" className="product_img" />
+                                <img src={e} alt="pic" className="product_img" />
                             </div>
                         ))}
                     </Carousel>
                 </div>
                 <div className="product_main">
-                    <h2>{item?.title}</h2>
+                    <h2>{item?.name}</h2>
                     <h4>Brand : <span>{item?.brand}</span> | model : <span>{item?.model}</span></h4>
                     <div className="product_main_price">
                         <div className="price_before_discount">
@@ -117,13 +120,38 @@ const Key = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* .......................similar product........................................ */}
             <div className="similiar_product">
                 <h2 className="heading">Similar products</h2>
-                <Cards items={cardItem} />
+                <Cards items={similiarProducts} />
             </div>
         </div>
     )
 }
 export default Key
+
+export async function getStaticPaths() {
+    // Fetch a list of product IDs from your API
+    const data = await fetch("http://localhost:8080/");
+    const productIds = await data.json()
+
+    const paths = productIds.map((item) => ({
+        params: { key: item?._id.toString() },
+    }));
+    return { paths, fallback: false };
+}
+
+
+export async function getStaticProps({ params }) {
+    // Fetch the product data from your API using the ID
+    const response= await fetch(`http://localhost:8080/productDetail/${params.key}`);
+    const data = await response.json();
+    const res = await fetch(`http://localhost:8080/products/${data.category}`);
+    const similiarProducts = await res.json();
+    return { 
+        props: { 
+            item:data,
+           similiarProducts,
+        } };
+}

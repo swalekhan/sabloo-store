@@ -18,7 +18,7 @@ const CartCard = ({ items }) => {
         <div className={style.CartCard}>
             <div className={style.CartCard_grid}>
                 {items.map((item, i) => (
-                    <div className={style.CartCard_wrapper} key={i} onClick={()=>router.push(`/ProductDetails/${item?.id}`)}>
+                    <div className={style.CartCard_wrapper} key={i} onClick={() => router.push(`/ProductDetails/${item?._id}`)}>
                         <div className={style.CartCard_header}>
                             <img src={item?.imgUrl} alt={item?.title} />
                         </div>
@@ -28,10 +28,10 @@ const CartCard = ({ items }) => {
                             <h5>{item?.brand} | SKU :<span>{item?.model}</span></h5>
                             <h6>${item?.price}</h6>
                             <div className={style.main_middle}>
-                                <div className={style.main_input} onClick={(e)=> e.stopPropagation()}>
-                                    <button className={`${style.minus_btn} ${item?.quantity <= 1 ? style.btn_disabled : ""}`} onClick={() => dispatch(decreamentQuantity(item?.id))} disabled={item?.quantity <= 1}>-</button>
+                                <div className={style.main_input} onClick={(e) => e.stopPropagation()}>
+                                    <button className={`${style.minus_btn} ${item?.quantity <= 1 ? style.btn_disabled : ""}`} onClick={() => dispatch(decreamentQuantity(item?._id))} disabled={item?.quantity <= 1}>-</button>
                                     <span>{item?.quantity} </span>
-                                    <button className={style.plus_btn} onClick={() => dispatch(increamnetQuantity(item?.id))}>+</button>
+                                    <button className={style.plus_btn} onClick={() => dispatch(increamnetQuantity(item?._id))}>+</button>
                                 </div>
                                 <div className={style.main_subtotle}>
                                     <p>Sub Total</p>
@@ -46,7 +46,7 @@ const CartCard = ({ items }) => {
                                 <h5>For 5 quantity delivary date : 07 May 2023</h5>
                                 <p>*subject to payment clearance today</p>
                             </div>
-                            <MdDeleteForever onClick={(e) =>{ e.stopPropagation(), dispatch(removeItem(item.id))}} />
+                            <MdDeleteForever onClick={(e) => { e.stopPropagation(), dispatch(removeItem(item?._id)) }} />
                         </div>
                     </div>
                 ))}
@@ -79,7 +79,7 @@ const CartCard = ({ items }) => {
                 </div>
 
                 <div className={style.payment_footer}>
-                    <button onClick={()=>alert(totalAmount)}>Checkout</button>
+                    <button onClick={() => alert(totalAmount)}>Checkout</button>
                 </div>
             </div>
         </div>
