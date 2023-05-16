@@ -80,9 +80,9 @@ const Key = ({ data }) => {
 export async function getStaticPaths() {
     // Fetch a list of product IDs from your API
     const paths = arr.map((item) => ({
-        params: { key: item?.title.toString() },
+        params: { key: item?.title},
     }));
-    return { paths, fallback: false };
+    return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {

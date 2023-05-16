@@ -132,9 +132,8 @@ const Key = ({ item , similiarProducts}) => {
 
 export async function getStaticPaths() {
     // Fetch a list of product IDs from your API
-    const data = await fetch("https://sabloo-store-backend.vercel.app/");
+    const data = await fetch("https://sabloo-store-backend.vercel.app");
     const productIds = await data.json()
-
     const paths = productIds.map((item) => ({
         params: { key: item?._id.toString() },
     }));
