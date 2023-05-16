@@ -2,7 +2,7 @@
 
 import style from './OurStore.module.css';
 import { ImLocation } from 'react-icons/im'
-import {BiTime} from 'react-icons/Bi'
+import {BiTime} from 'react-icons/bi'
 
 const OurStore = ({ items, title }) => {
     return (
