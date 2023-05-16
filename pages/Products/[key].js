@@ -87,10 +87,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // Fetch the product data from your API using the ID
-    const response = await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/products/${params.key}`);
+    const response =  await fetch(`https://sabloo-store-backend.vercel.app/products/${params.key}`);
     const data = await response.json();
 
-    return { props: { data, } };
+    return { props: { data } };
 }
 
 export default Key

@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 const HeroBanner = ({ items }) => {
     return (
-        <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
+        <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false} showArrows={false}>
             {items?.map((item, i) => (
                 <div key={i}>
                     <picture>

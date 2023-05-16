@@ -142,9 +142,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // Fetch the product data from your API using the ID
-    const response= await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/productDetail/${params.key}`);
+    const response= await fetch(`https://sabloo-store-backend.vercel.app/productDetail/${params.key}`);
     const data = await response.json();
-    const res = await fetch(`https://sabloo-store-backend-841orm0vj-swalekhan1522-gmailcom.vercel.app/products/${data.category}`);
+    const res = await fetch(`https://sabloo-store-backend.vercel.app/products/${data.category}`);
     const similiarProducts = await res.json();
     return { 
         props: { 
