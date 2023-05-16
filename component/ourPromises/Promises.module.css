@@ -31,7 +31,8 @@
     font-size: clamp(10px,2vw,20px);
 }
 .promise_item h5{
+    padding: 3px;
     color: #666;
     text-align: center;
-    font-size: clamp(10px,2vw,20px);
+    font-size: clamp(10px,1.5vw,20px);
 }

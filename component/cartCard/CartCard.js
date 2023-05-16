@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { increamnetQuantity, decreamentQuantity, removeItem, getTotal } from "@/store/cartSlice"
 import { useEffect } from "react"
 import { useRouter } from "next/router"
+import { calDiscount } from "@/utils/commenFunc/commenFunc"
 
 const CartCard = ({ items }) => {
     const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const CartCard = ({ items }) => {
                         <div className={style.CartCard_main}>
                             <h4>{item?.title}</h4>
                             <h5>{item?.brand} | SKU :<span>{item?.model}</span></h5>
-                            <h6>${item?.price}</h6>
+                            <h6> &#8377; {calDiscount(item?.price, item?.discount)}</h6>
                             <div className={style.main_middle}>
                                 <div className={style.main_input} onClick={(e) => e.stopPropagation()}>
                                     <button className={`${style.minus_btn} ${item?.quantity <= 1 ? style.btn_disabled : ""}`} onClick={() => dispatch(decreamentQuantity(item?._id))} disabled={item?.quantity <= 1}>-</button>
@@ -35,7 +36,7 @@ const CartCard = ({ items }) => {
                                 </div>
                                 <div className={style.main_subtotle}>
                                     <p>Sub Total</p>
-                                    <h4>${item?.quantity * (item?.price - (item?.price * item?.discount) / 100)}</h4>
+                                    <h4>&#8377; {calDiscount(item?.price, item?.discount)}</h4>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +44,7 @@ const CartCard = ({ items }) => {
                         <div className={style.CartCard_footer}>
                             <div className={style.footer_content}>
                                 <h4>Delivery Plan</h4>
-                                <h5>For 5 quantity delivary date : 07 May 2023</h5>
+                                <h5>For {item?.quantity} quantity delivary date : {`${new Date().getDate()+5}/${new Date().getMonth()+1}/ ${new Date().getFullYear()}` }</h5>
                                 <p>*subject to payment clearance today</p>
                             </div>
                             <MdDeleteForever onClick={(e) => { e.stopPropagation(), dispatch(removeItem(item?._id)) }} />
@@ -66,7 +67,7 @@ const CartCard = ({ items }) => {
                     </div>
                     <div className={style.main_order_value}>
                         <h5>Order value</h5>
-                        <p>${totalAmount}</p>
+                        <p> &#8377; {totalAmount}</p>
                     </div>
                     <div className={style.main_discount}>
                         <h5>NO. of Items</h5>
@@ -74,7 +75,7 @@ const CartCard = ({ items }) => {
                     </div>
                     <div className={style.main_total_amount}>
                         <h5>Total Amount</h5>
-                        <p>${totalAmount}</p>
+                        <p>&#8377; {totalAmount}</p>
                     </div>
                 </div>
 

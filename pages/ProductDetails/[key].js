@@ -84,11 +84,11 @@ const Key = ({ item , similiarProducts}) => {
                     <h4>Brand : <span>{item?.brand}</span> | model : <span>{item?.model}</span></h4>
                     <div className="product_main_price">
                         <div className="price_before_discount">
-                            <h4>MRP : <span>${item?.price}</span></h4>
+                            <h4>MRP : <span>&#8377; {item?.price}</span></h4>
                             <p>{"(Incl. off all taxes)"}</p>
                         </div>
                         <div className="price_after_price">
-                            <h4>${calDiscount(item?.price, item?.discount)}</h4>
+                            <h4>&#8377; {calDiscount(item?.price, item?.discount)}</h4>
                         </div>
                     </div>
                     {findInCart?.quantity >= 1 ? <p id="availble">{findInCart?.quantity} items present in your cart</p> :

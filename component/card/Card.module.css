@@ -127,6 +127,7 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 2px 1px 2px 0px #ccc;
+  border-radius: 5px;
 }
 
 .card_footer_btn input {
@@ -143,6 +144,7 @@
   cursor: pointer;
   background-color: rgb(222, 246, 255);
   color: rgb(17, 169, 220);
+  border-radius: 5px 0px 0px 5px;
 }
 
 .plus_btn {
@@ -152,6 +154,7 @@
   cursor: pointer;
   background-color: rgb(17, 169, 220);
   color: rgb(222, 246, 255);
+  border-radius: 0px 5px 5px 0px;
 }
 
 .add_to_cart_btn {
@@ -191,6 +194,10 @@
     border-radius: 0px;
   }
 
+  .card_wrapper:hover{
+    box-shadow: none;
+    transform: translate(0);
+  }
   .card_mobile {
     display: flex;
     justify-content: center;
@@ -268,7 +275,7 @@
   }
 
   .card_footer_btn input {
-    width: 80px;
+    width: 60px;
   }
 
   .plus_btn,

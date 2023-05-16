@@ -13,7 +13,7 @@ const OurStore = ({ items, title }) => {
                     <div className={style.OurStore_left}>
                         <h2>Sabloo Store, Dehgawan</h2>
                         <p>Main Market Near By Friday Market, Dehgawan 243638</p>
-                        <a href='/'>Get directions</a>
+                        <a href='https://www.google.com/maps/place/Subhash+Chandra+Namit+Kumar+Building+Material+Shop/@28.1387234,78.6255835,78m/data=!3m1!1e3!4m6!3m5!1s0x3974d5bb2612ce17:0xee4adcd40c533860!8m2!3d28.1387903!4d78.6259901!16s%2Fg%2F11c74z28zn'>Get directions</a>
                     </div>
                 </div>
                 
@@ -22,7 +22,7 @@ const OurStore = ({ items, title }) => {
                     <div className={style.OurStore_left}>
                         <h2>Sabloo Store, Sahaswan </h2>
                         <p>Char No. Chaurah Near By Petrol Pump, Sahaswan 243638</p>
-                        <a href='/'>Get directions</a>
+                        <a href='https://www.google.com/maps/place/Subhash+Chandra+Namit+Kumar+Building+Material+Shop/@28.1387234,78.6255835,78m/data=!3m1!1e3!4m6!3m5!1s0x3974d5bb2612ce17:0xee4adcd40c533860!8m2!3d28.1387903!4d78.6259901!16s%2Fg%2F11c74z28zn'>Get directions</a>
                     </div>
                 </div>
 

@@ -32,8 +32,8 @@ const cartSlice = createSlice({
                     allAmount: 0,
                     allQuantity: 0
                 })
-            state.totalAmount = allAmount;
-            state.totalQuantity = allQuantity;
+            state.totalAmount = allAmount.toFixed(2);
+            state.totalQuantity = allQuantity.toFixed(2);
         },
 
         removeItem(state, action) {

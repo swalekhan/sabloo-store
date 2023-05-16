@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const Card = ({ addCartHandler, ...data }) => {
     const item = data
-    const afterDiscountPrice = (item?.price - (item?.price * item?.discount) / 100)
+    const afterDiscountPrice = (item?.price - (item?.price * item?.discount) / 100).toFixed(2)
 
     const [inputQuant, setInputQuant] = useState(1)
     const [subTotl, setSubTotal] = useState(afterDiscountPrice)
@@ -14,7 +14,7 @@ const Card = ({ addCartHandler, ...data }) => {
     const router = useRouter();
 
     useEffect(() => {
-        setSubTotal(inputQuant * afterDiscountPrice)
+        setSubTotal((inputQuant * afterDiscountPrice).toFixed(2))
     }, [inputQuant])
 
     const changeHandler = (e) => {
@@ -45,7 +45,7 @@ const Card = ({ addCartHandler, ...data }) => {
             <div className={style.card_mobile}>
                 <div className={style.card_header}>
                     <img src={item?.imgUrl} alt='pic' />
-                    <h4 className={style.disccount}>{item?.discount >= 4 ? item?.discount + "% OFF" : "new"}</h4>
+                    <h4 className={style.disccount}>{item?.discount >= 1 ? item?.discount + "% OFF" : "new"}</h4>
                 </div>
 
                 <div className={style.card_main}>
@@ -56,10 +56,10 @@ const Card = ({ addCartHandler, ...data }) => {
 
                     <div className={style.card_main_middle}>
                         <div>
-                            <h4>MRP:<span>{item?.price}</span></h4>
+                            <h4>MRP:<span>&#8377; {item?.price}</span></h4>
                             <p>(Incl. of all taxes)</p>
                         </div>
-                        <h2>${afterDiscountPrice}</h2>
+                        <h2> &#8377; {afterDiscountPrice}</h2>
                     </div>
                     {findCartItem?.quantity >= 1 ? (<p className={style.item_added}>{findCartItem.quantity} Items present in your cart</p>) : (<h5 className={style.item_added}>MOQ : 1</h5>)}
                 </div>
@@ -74,7 +74,7 @@ const Card = ({ addCartHandler, ...data }) => {
                         <button className={style.plus_btn} onClick={() => setInputQuant(inputQuant + 1)}>+</button>
                     </div>
                     <div>
-                        <p>sub Total : ${subTotl}</p>
+                        <p>sub Total : &#8377; {subTotl}</p>
                     </div>
                 </div>
                 <button type='submit' onClick={addToCartHandler} className={style.add_to_cart_btn}>Add {findCartItem?.quantity >= 1 ? "MORE" : "to Cart"}</button>

@@ -16,7 +16,7 @@ const Cards = ({ items }) => {
             setShowAlert(true)
             setTimeout(() => {
                 setShowAlert(false)
-            }, 2500)
+            }, 1500)
         }
     }
 

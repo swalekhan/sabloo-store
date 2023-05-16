@@ -4,9 +4,9 @@
 
 .customer_story{
     padding: 20px 40px;
-    background: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhblV0WiTW9WdjNqobarQVlw-TwuYasoFviA&usqp=CAU");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 .customer_story .quote{
     max-width: 20px;
@@ -45,8 +45,12 @@
     color: #333;
 }
 .customer_img{
-   max-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    min-width: 100px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 /* @media (min-width:750px){

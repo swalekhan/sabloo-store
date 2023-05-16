@@ -1,5 +1,6 @@
 
 import style from './Footer.module.css'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
@@ -10,9 +11,10 @@ const Footer = () => {
                 <h2>Contact</h2>
 
                 <address>
-                    5534 Somewhere In. The World 22193-10212<br/>
+                    Sabloo Marble <br/> C12 Dehgawan, Budaun <br/>
+                   Call Us : 8006071188<br/>
 
-                        <a className={style["footer__btn"]} href="mailto:example@gmail.com">Email Us</a>
+                        <a className={style["footer__btn"]} href="mailto:swalekhan1522@gmail.com" target="_blank">Email Us</a>
                 </address>
             </div>
 
@@ -22,45 +24,53 @@ const Footer = () => {
 
                     <ul className={style["nav__ul"]}>
                         <li>
-                            <a href="#">Online</a>
+                            <Link href="#">Online</Link>
                         </li>
 
                         <li>
-                            <a href="#">Print</a>
+                            <Link href="#">All Product Under One Roof</Link>
                         </li>
 
                         <li>
-                            <a href="#">Alternative Ads</a>
+                            <Link href="#">Alternative Ads</Link>
                         </li>
                     </ul>
                 </li>
 
                 <li className={style["nav__item nav__item--extra"]}>
-                    <h2 className={style["nav__title"]}>Technology</h2>
+                    <h2 className={style["nav__title"]}>Our Service</h2>
 
                     <ul className={style["nav__ul nav__ul--extra"]}>
                         <li>
-                            <a href="#">Hardware Design</a>
+                            <Link href="/categories/WoodenMaterial">Hardware Material</Link>
                         </li>
 
                         <li>
-                            <a href="#">Software Design</a>
+                            <Link href="/categories/Tiles">All Tilec and Care</Link>
                         </li>
 
                         <li>
-                            <a href="#">Digital Signage</a>
+                            <Link href="/categories/WoodenMaterial">All Wooden Material</Link>
                         </li>
 
                         <li>
-                            <a href="#">Automation</a>
+                            <Link href="/categories/StructuralMaterial">Structural Material</Link>
                         </li>
 
                         <li>
-                            <a href="#">Artificial Intelligence</a>
+                            <Link href="/categories/Electrical">All Electric </Link>
                         </li>
 
                         <li>
-                            <a href="#">IoT</a>
+                            <Link href="/categories/Paints"> All Paints </Link>
+                        </li>
+
+                        <li>
+                            <Link href="/categories/Bath&Fitting">Bath and Fitting</Link>
+                        </li>
+
+                        <li>
+                            <Link href="/categories/ContactUs">ContactUs</Link>
                         </li>
                     </ul>
                 </li>

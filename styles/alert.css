@@ -21,18 +21,6 @@
     align-items: center;
 }
 
-/* .toast-content .check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 35px;
-    min-width: 35px;
-    background-color:#22bb33;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 50%;
-} */
-
 .toast-content .message {
     display: flex;
     flex-direction: column;
@@ -84,7 +72,7 @@
 }
 
 .progress.active:before {
-    animation: progress 2s linear forwards;
+    animation: progress 1s linear forwards;
 }
 
 @keyframes progress {
@@ -93,22 +81,12 @@
     }
 }
 
-/* button {
-    padding: 12px 20px;
-    font-size: 20px;
-    outline: none;
-    border: none;
-    background-color: #4070f4;
-    color: #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-} */
-
-/* button:hover {
-    background-color: #0e4bf1;
-} */
-
 .toast.active~button {
     pointer-events: none;
+}
+
+@media (max-width:650px){
+    .toast{
+        padding: 5px;
+    }
 }

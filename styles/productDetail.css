@@ -12,7 +12,7 @@
 .product_header {
     padding: 5px;
     width: min(450px, 100%);
-    margin-bottom: -25px;
+    margin-bottom: -15px;
 }
 
 .product_header img {
@@ -176,6 +176,10 @@
     .productDetail {
         flex-direction: column;
         gap: 0px;
+    }
+
+    .product_main h2{
+        font-size: 19px;
     }
     .main_end {
         margin: 0px;

@@ -13,10 +13,10 @@ const Alert = ({showAlert}) => {
 
         timer1 = setTimeout(() => {
             toast.classList.remove("active");
-        }, 2000); //1s = 1000 milliseconds
+        }, 1000); //1s = 1000 milliseconds
         timer2 = setTimeout(() => {
             progress.classList.remove("active");
-        }, 2400);
+        }, 1400);
     };
 
     useEffect(() => {
