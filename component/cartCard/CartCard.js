@@ -18,7 +18,7 @@ const CartCard = ({ items }) => {
     return (
         <div className={style.CartCard}>
             <div className={style.CartCard_grid}>
-                {items.map((item, i) => (
+                {items?.map((item, i) => (
                     <div className={style.CartCard_wrapper} key={i} onClick={() => router.push(`/ProductDetails/${item?._id}`)}>
                         <div className={style.CartCard_header}>
                             <img src={item?.imgUrl} alt={item?.title} />
@@ -27,7 +27,7 @@ const CartCard = ({ items }) => {
                         <div className={style.CartCard_main}>
                             <h4>{item?.title}</h4>
                             <h5>{item?.brand} | SKU :<span>{item?.model}</span></h5>
-                            <h6> &#8377; {calDiscount(item?.price, item?.discount)}</h6>
+                            <h6> &#8377;{calDiscount(item?.price, item?.discount)}</h6>
                             <div className={style.main_middle}>
                                 <div className={style.main_input} onClick={(e) => e.stopPropagation()}>
                                     <button className={`${style.minus_btn} ${item?.quantity <= 1 ? style.btn_disabled : ""}`} onClick={() => dispatch(decreamentQuantity(item?._id))} disabled={item?.quantity <= 1}>-</button>
@@ -36,7 +36,7 @@ const CartCard = ({ items }) => {
                                 </div>
                                 <div className={style.main_subtotle}>
                                     <p>Sub Total</p>
-                                    <h4>&#8377; {calDiscount(item?.price, item?.discount)}</h4>
+                                    <h4>&#8377;{(calDiscount(item?.price, item?.discount)*item?.quantity).toFixed(2)}</h4>
                                 </div>
                             </div>
                         </div>

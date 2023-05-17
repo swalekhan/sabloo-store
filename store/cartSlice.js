@@ -49,14 +49,18 @@ const cartSlice = createSlice({
 
         decreamentQuantity(state, action) {
             const find = state.cart.find((item) => item._id === action.payload);
-            if (find.quantity>1) {
+            if (find.quantity > 1) {
                 find.quantity = Number(find.quantity) - 1;
             }
+        },
+
+        repalceData(state, action){
+         state.cart = action.payload
         }
 
     }
 })
 
-export const { addItem, increamnetQuantity, decreamentQuantity, removeItem, getTotal } = cartSlice.actions;
+export const { addItem, increamnetQuantity, decreamentQuantity, removeItem, getTotal, repalceData } = cartSlice.actions;
 
 export default cartSlice.reducer

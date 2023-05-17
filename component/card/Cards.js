@@ -23,7 +23,7 @@ const Cards = ({ items }) => {
     return (
         <div className={style.card}>
             {showAlert && <Alert showAlert={showAlert} />}
-            {items.map((item, i) => (
+            {items?.map((item, i) => (
                 <Card addCartHandler={addCartHandler} {...item} key={i} />
             ))}
         </div >

@@ -6,7 +6,7 @@ import { HiShoppingCart } from "react-icons/hi"
 import { FaUserAlt } from "react-icons/fa"
 import { GiHamburgerMenu } from "react-icons/gi"
 import MobileManu from "./MobileMune"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { navLink } from '../../utils/data/data'
 import { useRouter } from "next/router"
@@ -16,30 +16,40 @@ const Navbar = () => {
     const [ShowMobileMenu, setShowMobileMenu] = useState(false)
     const [showMyAccount, setShowMyAccount] = useState(false);
     const { cart } = useSelector(state => state.cart)
+    const {isLogin} = useSelector(state => state.auth)
     const router = useRouter()
 
     const closeHnadler = (event) => {
         setShowMobileMenu(!ShowMobileMenu)
     }
 
+    // ....................profile.............................
     const myAccountHandler = () => {
-        const isSignup = localStorage.getItem("token")  //if user login
-        if (!isSignup) {
+        if (!isLogin) { //if user login
             router.push("/auth/Signup")
-            return
+            
+        }else{
+            setShowMyAccount(!showMyAccount)
         }
-        setShowMyAccount(!showMyAccount)
     }
-
     // ........................search handler.............
     const searchHandler = (e) => {
-      e.preventDefault()
-      const query = e.target.search.value.trim()
-      if(query.length<=0){
-        alert("please write something")
-        return
-      }
-      router.push(`/search/${query}`)
+        e.preventDefault()
+        const query = e.target.search.value.trim() //remove fide space
+        if (query.length <= 0) {
+            alert("please write something")
+            return
+        }
+        router.push(`/search/${query}`)
+    }
+
+    // .........cart_handler.........................
+    const cartHandler = () => {
+        if (!isLogin) {
+            router.push("/auth/Signup")
+        }else{
+            router.push("/Cart")
+        }
     }
 
     return (
@@ -56,8 +66,8 @@ const Navbar = () => {
                     </div>
 
                     <form className={style.search} onSubmit={searchHandler}>
-                            <input  type="text" name="search" placeholder="Search by Model, Brand, Category, etc" required />
-                            <button style={{border:"0px", backgroundColor:"transparent"}} type="submit"><FiSearch className={style.search_icon}/></button>
+                        <input type="text" name="search" placeholder="Search by Model, Brand, Category, etc" required />
+                        <button style={{ border: "0px", backgroundColor: "transparent" }} type="submit"><FiSearch className={style.search_icon} /></button>
                     </form>
 
                     <div className={style.nav_right}>
@@ -65,11 +75,11 @@ const Navbar = () => {
                             <FaStore />
                             <p>Store Locator</p>
                         </Link>
-                        <Link href="/Cart" className={style.nav_right_icon}>
+                        <div className={style.nav_right_icon} onClick={cartHandler}>
                             <HiShoppingCart />
-                            <h6 id={cart.length < 1 ? style.cartItem : ""}>{cart.length}</h6>
+                            <h6 id={cart && cart?.length < 1 ? style.cartItem : ""}>{cart?.length}</h6>
                             <p>Cart</p>
-                        </Link>
+                        </div>
                         <div className={style.nav_right_icon} onClick={myAccountHandler}>
                             <FaUserAlt />
                             <p>Login | sign Up</p>
@@ -82,7 +92,7 @@ const Navbar = () => {
                     {navLink.map((item, i) => (
                         <li key={i} className={style.nav_link} onClick={() => router.push(item.url)}>
                             {/* remove first home link */}
-                            {i >= 1 ? item.name : ""}
+                            {i >= 1 ? item?.name : ""}
                         </li>
                     ))}
                 </ul>

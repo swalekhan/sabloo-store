@@ -5,12 +5,16 @@ import style from "./MyAccount.module.css"
 import Link from "next/link"
 import { myAccount } from '@/utils/data/data'
 import { useRouter } from "next/router"
+import { useDispatch } from "react-redux"
+import { logout } from "@/store/authSlice"
 
 const MyAccount = ({ closeHnadler }) => {
      const router = useRouter()
+     const dispatch = useDispatch()
 
     const logoutHandler = () => {
-        localStorage.removeItem("token")
+        closeHnadler()
+        dispatch(logout())
         router.push("/auth/Signup")
     }
 

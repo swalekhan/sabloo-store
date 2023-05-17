@@ -1,10 +1,13 @@
 // import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { signup } from '@/store/authSlice'
 
 const Signup = () => {
     const [formData, setFormData] = useState({ name: "", phone: "", address: "" })
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const changeHandler = (e) => {
         setFormData({
@@ -15,7 +18,7 @@ const Signup = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        localStorage.setItem("token", JSON.stringify(formData))
+       dispatch(signup(formData))
         setFormData({
             ...formData,
             name: "",

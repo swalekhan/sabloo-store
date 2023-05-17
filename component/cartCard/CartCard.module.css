@@ -44,6 +44,9 @@
     font-weight: 700;
 }
 
+.CartCard_main h6 {
+    font-size:clamp(18px, 2vw, 25px) ;
+}
 .CartCard_main span {
     text-transform: uppercase;
     font-size: clamp(13px, 2vw, 16px);

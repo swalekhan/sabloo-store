@@ -3,16 +3,17 @@ import { AiOutlineClose } from "react-icons/ai"
 import style from "./Navbar.module.css"
 import Link from "next/link"
 import { navLink } from '@/utils/data/data'
+import { useSelector } from "react-redux"
 
 const MobileManu = ({ closeHnadler }) => {
-    const isSignup = JSON.parse(localStorage.getItem("token"))
+    const {isLogin} = useSelector(state => state.auth)
     return (
         <div className={style.mobile_manu} onClick={closeHnadler}>
             <div className={style.mobile_manu_inner} onClick={(e) => e.stopPropagation()}>
                 <div className={style.mobile_header}>
                     <div className={style.mobile_header_left}>
                         <BiUserCircle />
-                        <h4>{isSignup?.name ? isSignup?.name : "Hello"}</h4>
+                        <h4>{isLogin?.name ? isLogin?.name : "Hello"}</h4>
                     </div>
                     <div className={style.mobile_header_right}>
                         <AiOutlineClose onClick={closeHnadler} />

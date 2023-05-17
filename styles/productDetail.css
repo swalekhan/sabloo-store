@@ -170,10 +170,11 @@
 }
 @media (max-width:650px) {
     .product {
-        padding: 10px;
+        padding: 0px;
     }
 
     .productDetail {
+        padding: 10px;
         flex-direction: column;
         gap: 0px;
     }
