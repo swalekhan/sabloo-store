@@ -15,7 +15,6 @@ const Search = ({ results }) => {
         </>
     )
 }
-export default Search
 
 export async function getServerSideProps({ query }) {
     const res = await fetch(`https://sabloo-store-backend.vercel.app/search/${query.slug}`);
@@ -26,3 +25,6 @@ export async function getServerSideProps({ query }) {
         },
     };
 }
+
+export default Search
+

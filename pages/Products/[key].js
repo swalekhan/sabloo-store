@@ -92,7 +92,6 @@ const Key = ({ results }) => {
 
 //     return { props: { data } };
 // }
-export default Key
 
 export async function getServerSideProps({ query }) {
     const res = await fetch(`https://sabloo-store-backend.vercel.app/products/${query.key}`);
@@ -103,5 +102,8 @@ export async function getServerSideProps({ query }) {
         },
     };
 }
+export default Key
+
+
 
 

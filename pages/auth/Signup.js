@@ -18,7 +18,8 @@ const Signup = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-       dispatch(signup(formData))
+       localStorage.setItem("token",JSON.stringify(formData.phone));
+       dispatch(signup(formData.phone))
         setFormData({
             ...formData,
             name: "",

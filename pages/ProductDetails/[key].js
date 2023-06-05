@@ -54,10 +54,10 @@ const Key = ({ item , similiarProducts}) => {
     }
 
     const addToHandler = () => {
-        const isLogin = localStorage.getItem("token")
-        if (!isLogin) {
-            router.push("/auth/Signup")
-        }
+        // const isLogin = localStorage.getItem("token")
+        // if (!isLogin) {
+        //     router.push("/auth/Signup")
+        // }
         dispatch(addItem({
             ...item,
             quantity: count,

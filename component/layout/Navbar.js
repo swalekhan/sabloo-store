@@ -37,10 +37,11 @@ const Navbar = () => {
         e.preventDefault()
         const query = e.target.search.value.trim() //remove fide space
         if (query.length <= 0) {
-            alert("please write something")
+            // ...empty feild......................
             return
         }
         router.push(`/search/${query}`)
+        e.target.search.value = ""
     }
 
     // .........cart_handler.........................

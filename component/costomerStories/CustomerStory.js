@@ -7,7 +7,7 @@ const CustomerStory = ({items}) => {
     return (
         <>
         <h3 className="heading">Customers Stories</h3>
-        <Carousel showArrows={false} autoPlay={true} infiniteLoop={true} showThumbs={false} >
+        <Carousel showArrows={false} autoPlay={false} infiniteLoop={true} showThumbs={false} >
             {items.map((item, i) => (
                 <div className={style.customer_story} key={i}>
                     <img src={item.quote} alt="pic" className={style.quote} />

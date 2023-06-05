@@ -33,7 +33,7 @@ const cartSlice = createSlice({
                     allQuantity: 0
                 })
             state.totalAmount = allAmount.toFixed(2);
-            state.totalQuantity = allQuantity.toFixed(2);
+            state.totalQuantity = allQuantity;
         },
 
         removeItem(state, action) {
@@ -42,20 +42,17 @@ const cartSlice = createSlice({
 
         increamnetQuantity(state, action) {
             const find = state.cart.find((item) => item._id === action.payload);
-            if (find) {
-                find.quantity = Number(find.quantity) + 1;
-            }
+            if (find) { find.quantity = Number(find.quantity) + 1; }
         },
 
         decreamentQuantity(state, action) {
             const find = state.cart.find((item) => item._id === action.payload);
-            if (find.quantity > 1) {
-                find.quantity = Number(find.quantity) - 1;
-            }
+            if (find.quantity > 1) { find.quantity = Number(find.quantity) - 1 }
         },
 
-        repalceData(state, action){
-         state.cart = action.payload
+
+        repalceData(state, action) {
+            state.cart = action.payload
         }
 
     }

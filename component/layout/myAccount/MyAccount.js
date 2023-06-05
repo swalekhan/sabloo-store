@@ -14,6 +14,7 @@ const MyAccount = ({ closeHnadler }) => {
 
     const logoutHandler = () => {
         closeHnadler()
+        localStorage.removeItem("token")
         dispatch(logout())
         router.push("/auth/Signup")
     }
