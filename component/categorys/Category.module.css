@@ -1,9 +1,8 @@
 
 .Category ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
-    row-gap: clamp(30px, 5vw,50px);
-    
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: clamp(20px, 5vw, 40px);
 }
 .Category ul li{
     padding: 5px;
@@ -14,14 +13,22 @@
     justify-content: center;
     cursor: pointer;
 }
-
+.item_content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .item_content p {
     color: #444;
     font-size: clamp(14px, 2vw, 17px);
 }
+.Category_img{
+    position: relative;
+    width: clamp(50px, 10vw, 100px);
+    height:clamp(50px, 10vw, 100px);
+} 
 .Category img {
-    max-width: clamp(50px,10vw, 100px);
-    height:clamp(50px,10vw, 100px);
     object-fit: cover;
     border-radius: 50%;
 }

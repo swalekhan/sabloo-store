@@ -13,7 +13,7 @@ const MobileManu = ({ closeHnadler }) => {
                 <div className={style.mobile_header}>
                     <div className={style.mobile_header_left}>
                         <BiUserCircle />
-                        <h4>{isLogin?.name ? isLogin?.name : "Hello"}</h4>
+                        <h4>{isLogin?.displayName ? isLogin?.displayName : "Hello"}</h4>
                     </div>
                     <div className={style.mobile_header_right}>
                         <AiOutlineClose onClick={closeHnadler} />

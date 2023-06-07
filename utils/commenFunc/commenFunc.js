@@ -8,19 +8,29 @@ export const calDiscount = (price, discount) => {
 
 
 export const fetchData = async (url) => {
-    const data = await fetch(url);
-    return await data.json()
+    try{
+        const data = await fetch(url);
+        return await data.json()
+    }catch(err){
+        console.log(err)
+    }
+   
 }
 
 export const putData = async(url, cart) => {
-    const res = await fetch(url, {
-        method: "PUT",
-        body: JSON.stringify(cart),
-        headers: {
-            "Content-type": "application/json"
-        }
-    })
-    return await res.json()
+    try{
+        const res = await fetch(url, {
+            method: "PUT",
+            body: JSON.stringify(cart),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+        return await res.json()
+    }catch(err){
+        console.log(err)
+    }
+    
 }
 
 export const isLogin = () => {

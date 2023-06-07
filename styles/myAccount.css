@@ -11,19 +11,23 @@
 .myProfile_content {
     background: url("https://www.hippostores.com/images/profile/Profile-card.svg");
     /* background-position: center; */
+    width: 700px;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 100px 50px 100px 50px;
     border-radius: 15px;
+    background-color: #15c4fe57;
 }
 
 .myProfile_content h4{
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .myProfile_content h5{
-    font-size: 35px;
+    font-size: 23px;
+    text-transform: uppercase;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 .myProfile_content p{
     margin-top: 10px;
@@ -41,11 +45,11 @@
         padding: 20px 20px 30px 20px;
     }
     .myProfile_content h4{
-        font-size: 20px;
+        font-size: 35px;
     }
     
     .myProfile_content h5{
-        font-size: 25px;
+        font-size: 18px;
         margin-bottom: 10px;
     }
     .myProfile_content p{

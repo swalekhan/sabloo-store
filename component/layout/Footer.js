@@ -38,8 +38,6 @@ const Footer = () => {
                 </li>
 
                 <li className={style["nav__item nav__item--extra"]}>
-                    <h2 className={style["nav__title"]}>Our Service</h2>
-
                     <ul className={style["nav__ul nav__ul--extra"]}>
                         <li>
                             <Link href="/categories/WoodenMaterial">Hardware Material</Link>
@@ -69,9 +67,6 @@ const Footer = () => {
                             <Link href="/categories/Bath&Fitting">Bath and Fitting</Link>
                         </li>
 
-                        <li>
-                            <Link href="/categories/ContactUs">ContactUs</Link>
-                        </li>
                     </ul>
                 </li>
 

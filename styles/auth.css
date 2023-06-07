@@ -92,14 +92,16 @@
 } */
 
 
-.signup{
+.signup {
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 50px 0px;
 }
-.signup h2{
+
+.signup h2 {
     color: var(--main-color);
 }
 
@@ -109,9 +111,10 @@
     border-radius: 10px;
 }
 
-.form-group{
+.form-group {
     padding: 10px;
 }
+
 .form-group input {
     padding: 10px 50px 10px 10px;
     outline: 0px;
@@ -124,5 +127,32 @@
     background-color: var(--main-color);
     border: 0px;
     color: #fff;
+    font-weight: 700;
     border-radius: 2px;
+}
+
+
+.change_form {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.change_form p {
+    font-size: 14px;
+    color: #777;
+}
+
+.change_form a {
+    margin-left: 5px;
+    color: rgba(35, 83, 241, 0.735);
+    text-decoration: underline;
+}
+
+.forgetpass {
+    display: inline-block;
+    color: #777;
+    font-size: 15px;
+    margin-top: 5px;
 }

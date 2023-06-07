@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Cards from '@/component/card/Cards';
+import Head from 'next/head';
 
 
 // const arr = [
@@ -70,6 +71,11 @@ const Key = ({ results }) => {
 
     return (
         <>
+             <Head>
+                <title>Sabloo Marble</title>
+                <meta name="description" content="all stuff under one roof" />
+            </Head>
+
             <h2 className='heading'>{router.query.key}</h2>
             <Cards items={results} />
         </>

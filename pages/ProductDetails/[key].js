@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import { useDispatch, useSelector } from "react-redux";
 import ProductIcon from "@/component/productDetailIcon/ProductIcon";
 import { useState } from "react";
+import Head from "next/head";
 import Cards from "@/component/card/Cards";
 import { calDiscount } from "@/utils/commenFunc/commenFunc";
 import { addItem } from "@/store/cartSlice";
@@ -32,7 +33,7 @@ const cardItem = [
 ]
 
 const pincode = ["243638", "110017"]
-const Key = ({ item , similiarProducts}) => {
+const Key = ({ item, similiarProducts }) => {
     const [count, setCount] = useState(1)
     const [input, setInput] = useState("")
     const [pinWarn, setPinWarn] = useState("")
@@ -54,79 +55,86 @@ const Key = ({ item , similiarProducts}) => {
     }
 
     const addToHandler = () => {
-        // const isLogin = localStorage.getItem("token")
-        // if (!isLogin) {
-        //     router.push("/auth/Signup")
-        // }
+        if (!isLogin) {
+            router.push("/auth/Signup")
+        }
         dispatch(addItem({
             ...item,
             quantity: count,
         }))
     }
 
-    if(router.isFallback){
+    if (router.isFallback) {
         return <p>loading....</p>
     }
     return (
-        <div className="product">
-            <div className="productDetail">
-                <div className="product_header">
-                    <Carousel infiniteLoop={true} thumbWidth={90} showArrows={false}>
-                        {item?.imgUrl?.map((e, i) => (
-                            <div key={i}>
-                                <img src={e} alt="pic" className="product_img" />
-                            </div>
-                        ))}
-                    </Carousel>
-                </div>
-                <div className="product_main">
-                    <h2>{item?.name}</h2>
-                    <h4>Brand : <span>{item?.brand}</span> | model : <span>{item?.model}</span></h4>
-                    <div className="product_main_price">
-                        <div className="price_before_discount">
-                            <h4>MRP : <span>&#8377; {item?.price}</span></h4>
-                            <p>{"(Incl. off all taxes)"}</p>
-                        </div>
-                        <div className="price_after_price">
-                            <h4>&#8377; {calDiscount(item?.price, item?.discount)}</h4>
-                        </div>
-                    </div>
-                    {findInCart?.quantity >= 1 ? <p id="availble">{findInCart?.quantity} items present in your cart</p> :
-                        <h4>MOQ : 1</h4>
-                    }
-                    <div className="main_end">
-                        <div className="main_end_input">
-                            <button className="minus_btn" onClick={() => setCount(count - 1)} disabled={count <= 1}>-</button>
-                            <input type='text' min={1} max={500} required onChange={(e) => setCount(e.target.value)} value={count} />
-                            <button className="plus_btn" onClick={() => setCount(count + 1)}>+</button>
-                        </div>
-                        <div className="main_btn">
-                            <button onClick={addToHandler}>Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
+        <>
+            <Head>
+                <title>{item?.name}</title>
+                <meta name="description" content={item.description} />
+            </Head>
 
-                <div className="product_footer">
-                    <p>Check delivery option</p>
-                    <div className="footer_delevery_checker">
-                        <input type="text" placeholder="Please enter 6 digits Pincode" onChange={(e) => { setInput(e.target.value) }} />
-                        <button onClick={checkHandler}>Check</button>
-                        {pinWarn}
+            <section className="product">
+                <div className="productDetail">
+                    <div className="product_header">
+                        <Carousel infiniteLoop={true} thumbWidth={90} showArrows={false}>
+                            {item?.imgUrl?.map((e, i) => (
+                                <div key={i}>
+                                    <img src={e} alt="pic" className="product_img" />
+                                </div>
+                            ))}
+                        </Carousel>
                     </div>
-                    <div className="product_icon">
-                        {arr.map((item, i) => (
-                            <ProductIcon {...item} key={i} />
-                        ))}
+                    <div className="product_main">
+                        <h2>{item?.name}</h2>
+                        <h4>Brand : <span>{item?.brand}</span> | model : <span>{item?.model}</span></h4>
+                        <div className="product_main_price">
+                            <div className="price_before_discount">
+                                <h4>MRP : <span>&#8377; {item?.price}</span></h4>
+                                <p>{"(Incl. off all taxes)"}</p>
+                            </div>
+                            <div className="price_after_price">
+                                <h4>&#8377; {calDiscount(item?.price, item?.discount)}</h4>
+                            </div>
+                        </div>
+                        {findInCart?.quantity >= 1 ? <p id="availble">{findInCart?.quantity} items present in your cart</p> :
+                            <h4>MOQ : 1</h4>
+                        }
+                        <div className="main_end">
+                            <div className="main_end_input">
+                                <button className="minus_btn" onClick={() => setCount(count - 1)} disabled={count <= 1}>-</button>
+                                <input type='text' min={1} max={500} required onChange={(e) => setCount(e.target.value)} value={count} />
+                                <button className="plus_btn" onClick={() => setCount(count + 1)}>+</button>
+                            </div>
+                            <div className="main_btn">
+                                <button onClick={addToHandler}>Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="product_footer">
+                        <p>Check delivery option</p>
+                        <div className="footer_delevery_checker">
+                            <input type="text" placeholder="Please enter 6 digits Pincode" onChange={(e) => { setInput(e.target.value) }} />
+                            <button onClick={checkHandler}>Check</button>
+                            {pinWarn}
+                        </div>
+                        <div className="product_icon">
+                            {arr.map((item, i) => (
+                                <ProductIcon {...item} key={i} />
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* .......................similar product........................................ */}
-            <div className="similiar_product">
+            <section className="similiar_product">
                 <h2 className="heading">Similar products</h2>
                 <Cards items={similiarProducts} />
-            </div>
-        </div>
+            </section>
+
+        </>
     )
 }
 
@@ -142,15 +150,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // Fetch the product data from your API using the ID
-    const response= await fetch(`https://sabloo-store-backend.vercel.app/productDetail/${params.key}`);
+    const response = await fetch(`https://sabloo-store-backend.vercel.app/productDetail/${params.key}`);
     const data = await response.json();
     const res = await fetch(`https://sabloo-store-backend.vercel.app/products/${data.category}`);
     const similiarProducts = await res.json();
-    return { 
-        props: { 
-            item:data,
-           similiarProducts,
-        } };
+    return {
+        props: {
+            item: data,
+            similiarProducts,
+        }
+    };
 }
 
 export default Key

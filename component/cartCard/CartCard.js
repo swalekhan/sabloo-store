@@ -21,11 +21,11 @@ const CartCard = ({ items }) => {
                 {items?.map((item, i) => (
                     <div className={style.CartCard_wrapper} key={i} onClick={() => router.push(`/ProductDetails/${item?._id}`)}>
                         <div className={style.CartCard_header}>
-                            <img src={item?.imgUrl} alt={item?.title} />
+                            <img src={item?.imgUrl} alt={item?.name} />
                         </div>
 
                         <div className={style.CartCard_main}>
-                            <h4>{item?.title}</h4>
+                            <h4>{item?.name}</h4>
                             <h5>{item?.brand} | SKU :<span>{item?.model}</span></h5>
                             <h6> &#8377;{calDiscount(item?.price, item?.discount)}</h6>
                             <div className={style.main_middle}>
