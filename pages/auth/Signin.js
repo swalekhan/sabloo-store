@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { signup } from '@/store/authSlice'
+import Head from 'next/head'
 import Link from 'next/link'
 
 const Signin = () => {

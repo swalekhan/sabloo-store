@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const Signin = () => {
     const [formData, setFormData] = useState({ email: "" })
