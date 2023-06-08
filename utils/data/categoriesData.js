@@ -5,7 +5,7 @@ export const homeCategory = [
     { id: 1, title: "Tiles", url: "/Products/Tiles", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJqNDA5NmFpaHNoaXNleHoyZHB3ODVkdjNyMHVkIiwiZmlsZW5hbWUiOiJXb29kZW4gRmxvb3Jpbmcud2VicCIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3dlYnAiLCJibG9iX2tleSI6Imo0MDk2YWloc2hpc2V4ejJkcHc4NWR2M3IwdWQiLCJjb252ZXJ0X3dlYnAiOnRydWV9.jE1C2lD989oNfsKXolW45vhMXJ6394nNhPu3FrjHfI4" },
     { id: 1, title: "Paints", url: "/Products/Paints", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJqaWIxb2Jvcnl3anl6ZXoyczU4aXMxOXdvcDRqIiwiZmlsZW5hbWUiOiJQYWludC5wbmciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9wbmciLCJibG9iX2tleSI6ImppYjFvYm9yeXdqeXplejJzNThpczE5d29wNGoiLCJjb252ZXJ0X3dlYnAiOnRydWV9.x3GpveE4aaCYUdJSdIeL-gFJCkZJxy9KBDFTtoht3FQ" },
     { id: 1, title: "Bath&Fitting", url: "/Products/Bath and Fitting", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJneGFma3ExZWMwN2J1c3dsNWI1cDQ0cDJmazRsIiwiZmlsZW5hbWUiOiJCYXRoIEZpdHRpbmdzLndlYnAiLCJjb250ZW50X3R5cGUiOiJpbWFnZS93ZWJwIiwiYmxvYl9rZXkiOiJneGFma3ExZWMwN2J1c3dsNWI1cDQ0cDJmazRsIiwiY29udmVydF93ZWJwIjp0cnVlfQ.QIc6zgqUmpye4lJSTX5jzWWxe7XjsciH7BSHxe-B_yY" },
-    { id: 1, title: "Sheets", url: "/Products/Sanitryware", img: "/assets/desk6.png.webp" },
+    { id: 1, title: "Sheets", url: "/Products/Sheet", img: "/assets/desk6.png.webp" },
     { id: 1, title: "Light", url: "/Products/Electric", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJpb2dyaG0xemwxOWlxMXNrcW54ejlodGVtYmtoIiwiZmlsZW5hbWUiOiJMaWdodGluZy53ZWJwIiwiY29udGVudF90eXBlIjoiaW1hZ2Uvd2VicCIsImJsb2Jfa2V5IjoiaW9ncmhtMXpsMTlpcTFza3FueHo5aHRlbWJraCIsImNvbnZlcnRfd2VicCI6dHJ1ZX0.wMAYYcyRWMOSIg-W8rGXMBNhKtd_t-w6cyJKPZtRHu0" },
     { id: 1, title: "Sanitaryware", url: "/Products/Sanitaryware", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiI1d215Nm8zYXd4YnY1OGJ2ZDU1cDNxZWk4ZnA0IiwiZmlsZW5hbWUiOiJTYW5pdGFyeXdhcmUud2VicCIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3dlYnAiLCJibG9iX2tleSI6IjV3bXk2bzNhd3hidjU4YnZkNTVwM3FlaThmcDQiLCJjb252ZXJ0X3dlYnAiOnRydWV9.Cg25Zk_skHG00WAraSawEFVn8LrbhKPPuyi-cuKrj7w" },
     { id: 1, title: "Plumming", url: "/Products/Plumming", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJ5cnpkNGx3NmFqOWUzNHNxMG9vOGk0bTNrdjlwIiwiZmlsZW5hbWUiOiJQbHVtYmluZy53ZWJwIiwiY29udGVudF90eXBlIjoiaW1hZ2Uvd2VicCIsImJsb2Jfa2V5IjoieXJ6ZDRsdzZhajllMzRzcTBvbzhpNG0za3Y5cCIsImNvbnZlcnRfd2VicCI6dHJ1ZX0.dFVfaIV4VpKULriP0yRrUR5UYZibg0hcEOtWzaoiWpI" },
@@ -22,6 +22,7 @@ export const homeBrand = [
     { id: 1, img: "/brand/Simero.webp" },
     { id: 1, img: "/brand/Somany-ceramics.webp" },
     { id: 1, img: "/brand/Tamron.webp" },
+    { id: 1, img: "/brand/Virgo-Logo.webp" },
     { id: 1, img: "/brand/Yale.webp" },
 ]
 
@@ -72,7 +73,7 @@ export const tilesBrand = [
     { id: 1, img: "/brand/Somany-ceramics.webp" },
     { id: 1, img: "/brand/Tamron.webp" },
     { id: 1, img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiI5MndkZW50dXRjcnlrdmZlb3JreGlnMHN4b295IiwiZmlsZW5hbWUiOiJBR0wucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwiYmxvYl9rZXkiOiI5MndkZW50dXRjcnlrdmZlb3JreGlnMHN4b295IiwiY29udmVydF93ZWJwIjp0cnVlfQ.8F0DpLcy6HAtjVWdMnTEVsMwDPy5AAn1YXm4y3F64rI" },
-    { id: 1, img: "/brand/Virgo-logo.webp" },
+    { id: 1, img: "/brand/Virgo-Logo.webp" },
 ]
 
 

@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import Cards from '@/component/card/Cards';
 import Head from 'next/head';
 import { allProductsLink } from '@/utils/data/data';
+import { fetchData } from '@/utils/commenFunc/commenFunc';
 
 const Key = ({ results }) => {
     const router = useRouter()
@@ -42,10 +43,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, query }) {
     // Fetch the product data from your API using the ID
     const { key } = params || query
-    console.log(key, params, query)
-    const response = await fetch(`https://sabloo-store-backend.vercel.app/products/${key}`);
-    const results = await response.json();
-    
+    const results = await fetchData(`https://sabloo-store-backend.vercel.app/products/${key}`)
     return { props: { results } };
 }
 export default Key

@@ -42,7 +42,7 @@ const Card = ({ addCartHandler, ...data }) => {
 
                 <div className={style.card_main}>
                     <div className={style.card_main_top}>
-                        <h4>{item?.name.length>=52?`${item?.name?.substring(0,52)}...`:item?.name}</h4>
+                        <h4>{item?.name.length>=38?`${item?.name?.substring(0,38)}...`:item?.name}</h4>
                         <h5>Brand: <span>{item?.brand}</span></h5>
                     </div>
 

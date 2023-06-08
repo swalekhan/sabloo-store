@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { signup } from '@/store/authSlice'
 import Head from 'next/head'
 import Link from 'next/link'
+import { postData } from '@/utils/commenFunc/commenFunc'
 
 const Signup = () => {
     const [formData, setFormData] = useState({ name: "", email: "", password: "" })
@@ -19,29 +20,28 @@ const Signup = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        try {
-            let res = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', {
-                method: 'POST',
-                body: JSON.stringify({ ...formData, returnSecureToken: true }),
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            })
 
-            const data = await res?.json()
-            if (data.error && data.error.message) {
-                alert(data.error.message)
-                return;
-            }
-            // .........store data in local storage................
-            localStorage.setItem("token", JSON.stringify({ ...data }));
-            dispatch(signup({ ...data }))
-        } catch (err) {
-            console.log(err)
+        const data = await postData('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', { ...formData, returnSecureToken: true })
+        if (data.error && data.error.message) {
+            alert(data.error.message)
+            return;
         }
+
+        // .........store data in local storage................
+        localStorage.setItem("token", JSON.stringify({ ...data }));
+        dispatch(signup({ ...data }))
 
         router.back("/")  // navigation .............
     }
+
+    useEffect(() => {
+        const heading = "Sign Up"
+        heading.split("").map((e, i) => {
+            setTimeout(() => {
+                document.getElementById("signup_heading").innerHTML += e
+            }, 100*i)
+        });
+    }, [])
     return (
 
         <>
@@ -52,17 +52,17 @@ const Signup = () => {
 
             <section className='signup'>
                 <form onSubmit={submitHandler}>
-                    <h2>Sign-up</h2>
+                    <h2 id='signup_heading'></h2>
                     <div className='form-group'>
-                        <input type='text' id='name' name='displayName' required onChange={changeHandler} value={formData.displayName} placeholder='Please enter name' />
+                        <input type='text' id='name' name='displayName' required onChange={changeHandler} value={formData.displayName} placeholder='Name' />
                     </div>
 
                     <div className='form-group'>
-                        <input type="text" id='email' name='email' required onChange={changeHandler} value={formData.email} placeholder='Please enter email' />
+                        <input type="text" id='email' name='email' required onChange={changeHandler} value={formData.email} placeholder='Nmail' />
                     </div>
 
                     <div className='form-group'>
-                        <input type='text' id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Please enter password' />
+                        <input type='text' id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Password' />
                     </div>
 
                     <button type='submit'>Signup</button>

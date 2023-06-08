@@ -15,7 +15,7 @@ import MyAccount from "./myAccount/MyAccount"
 const Navbar = () => {
     const [showMyAccount, setShowMyAccount] = useState(false);
     const { cart } = useSelector(state => state.cart)
-    const {isLogin} = useSelector(state => state.auth)
+    const { isLogin } = useSelector(state => state.auth)
     const router = useRouter()
 
     // ................mobile_menu- show or hide...................................
@@ -23,18 +23,18 @@ const Navbar = () => {
         const mobile_manu = document.getElementById("mobile_menu");
         mobile_manu.style.transform = "translate(-100vw)"
     }
-    
-   const showHandler = (e) => {
-      const mobile_manu = document.getElementById("mobile_menu");
-      mobile_manu.style.transform = "translate(0vw)"
-   }
+
+    const showHandler = (e) => {
+        const mobile_manu = document.getElementById("mobile_menu");
+        mobile_manu.style.transform = "translate(0vw)"
+    }
 
     // ....................profile menu - show and hide .............................
     const myAccountHandler = () => {
         if (!isLogin) { //if user login
             router.push("/auth/Signup")
-            
-        }else{
+
+        } else {
             setShowMyAccount(!showMyAccount)
         }
     }
@@ -48,14 +48,14 @@ const Navbar = () => {
             return
         }
         router.push(`/search/${query}`)
-        e.target.search.value = "" 
+        e.target.search.value = ""
     }
 
     // .........cart_handler.........................
     const cartHandler = () => {
         if (!isLogin) {
             router.push("/auth/Signup")
-        }else{
+        } else {
             router.push("/Cart")
         }
     }
@@ -63,7 +63,7 @@ const Navbar = () => {
     return (
         <>
             {showMyAccount && <MyAccount closeHnadler={myAccountHandler} />}
-            <MobileManu closeHnadler={closeHnadler}/>
+            <MobileManu closeHnadler={closeHnadler} />
             <nav className={style["navbar"]}>
                 <div className={style.nav_inner}>
 
@@ -97,15 +97,14 @@ const Navbar = () => {
                 {/* link.............. */}
                 <ul className={style.nav_links}>
                     {navLink.map((item, i) => (
-                        <li key={i} className={style.nav_link} onClick={() => router.push(item.url)}>
+                        <li key={i} className={style.nav_link} id={`${router.pathname === item.url && "active"}`} onClick={() => router.push(item.url)}>
                             {/* remove first home link */}
                             {i >= 1 ? item?.name : ""}
                         </li>
                     ))}
                 </ul>
-
             </nav>
-            </>
+        </>
     )
 }
 

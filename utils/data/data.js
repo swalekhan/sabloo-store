@@ -100,7 +100,7 @@ export const allProductsLink = [
   { id: 48, title: "Steel T Iron" },
   { id: 49, title: "Paints" },
   { id: 50, title: "Bath and Fitting" },
-  { id: 51, title: "Sheets" },
+  { id: 51, title: "Sheet" },
   { id: 52, title: "Light" },
   { id: 53, title: "Sanitaryware" },
   { id: 54, title: "Plumming" },

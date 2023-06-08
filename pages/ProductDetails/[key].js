@@ -6,8 +6,9 @@ import ProductIcon from "@/component/productDetailIcon/ProductIcon";
 import { useState } from "react";
 import Head from "next/head";
 import Cards from "@/component/card/Cards";
-import { calDiscount } from "@/utils/commenFunc/commenFunc";
+import { calDiscount, fetchData } from "@/utils/commenFunc/commenFunc";
 import { addItem } from "@/store/cartSlice";
+
 
 
 const arr = [
@@ -31,6 +32,7 @@ const Key = ({ item, similiarProducts }) => {
     const findInCart = cart.find((e) => e._id === item._id)
     const {isLogin} = useSelector(state => state.auth)
 
+    // .....................pincode check...................................
     const checkHandler = () => {
         if (input.length >= 6 && pincode.includes(input)) {
             setPinWarn(<p id="availble">delivery available at {input}</p>)
@@ -41,6 +43,7 @@ const Key = ({ item, similiarProducts }) => {
         }
     }
 
+    // ................add to card.....................................
     const addToHandler = () => {
         if (!isLogin.email) {
             router.push("/auth/Signup")
@@ -56,6 +59,7 @@ const Key = ({ item, similiarProducts }) => {
     if (router.isFallback) {
         return <p>loading....</p>
     }
+    
     return (
         <>
             <Head>
@@ -130,20 +134,18 @@ const Key = ({ item, similiarProducts }) => {
 
 export async function getStaticPaths() {
     // Fetch a list of product IDs from your API
-    const data = await fetch("https://sabloo-store-backend.vercel.app");
-    const productIds = await data.json()
-    const paths = productIds.map((item) => ({
+    const data = await fetchData("https://sabloo-store-backend.vercel.app");
+    const paths = data.map((item) => ({
         params: { key: item?._id.toString() },
     }));
-    return { paths, fallback: false };
+    return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
     // Fetch the product data from your API using the ID
-    const response = await fetch(`https://sabloo-store-backend.vercel.app/productDetail/${params.key}`);
-    const data = await response.json();
-    const res = await fetch(`https://sabloo-store-backend.vercel.app/products/${data.category}`);
-    const similiarProducts = await res.json();
+    const data = await fetchData(`https://sabloo-store-backend.vercel.app/productDetail/${params.key}`);
+    const similiarProducts  = await fetchData(`https://sabloo-store-backend.vercel.app/products/${data.category}`);
+    
     return {
         props: {
             item: data,

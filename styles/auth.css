@@ -129,11 +129,12 @@
     color: #fff;
     font-weight: 700;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 
 .change_form {
-    margin-top: 5px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,5 +155,5 @@
     display: inline-block;
     color: #777;
     font-size: 15px;
-    margin-top: 5px;
+    margin-top: 10px;
 }

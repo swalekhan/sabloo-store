@@ -8,17 +8,17 @@ export const calDiscount = (price, discount) => {
 
 
 export const fetchData = async (url) => {
-    try{
+    try {
         const data = await fetch(url);
         return await data.json()
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
-   
+
 }
 
-export const putData = async(url, cart) => {
-    try{
+export const putData = async (url, cart) => {
+    try {
         const res = await fetch(url, {
             method: "PUT",
             body: JSON.stringify(cart),
@@ -27,11 +27,32 @@ export const putData = async(url, cart) => {
             }
         })
         return await res.json()
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
-    
+
 }
+
+export const postData = async (url, data) => {
+    try {
+        const response = fetch(url, {
+            method: "POST",
+            body: JSON.stringify({ data }),
+            headers: {
+                'Content-Type': "application/json"
+            }
+        })
+        if (!response.ok) {
+            throw new Error("somethin went wrong")
+        }
+
+        return await response.json()
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 
 export const isLogin = () => {
     return JSON.parse(localStorage.getItem("token"))

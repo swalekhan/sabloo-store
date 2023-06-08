@@ -113,8 +113,8 @@
     cursor: pointer;
 }
 
-.nav_link:visited{
-    color: var(--main-color);
+#active{
+    color: var(--main-color) !important;
 }
 .nav_link:hover{
     color: var(--main-color);
@@ -272,4 +272,6 @@
 .mobile_main a:hover {
     color: var(--main-color);
 }
+
+
 
