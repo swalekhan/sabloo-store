@@ -178,12 +178,3 @@ a {
 }
 
 /* .........................fold phone.................. */
-@media (max-width:290px){
-  .Category_Category__B1LXn ul{
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .Navbar_nav_left__pt_WR img {
-    width: auto;
-  }
-}

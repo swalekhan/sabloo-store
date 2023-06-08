@@ -23,7 +23,6 @@ export const homeBrand = [
     { id: 1, img: "/brand/Somany-ceramics.webp" },
     { id: 1, img: "/brand/Tamron.webp" },
     { id: 1, img: "/brand/Yale.webp" },
-    { id: 1, img: "/brand/Virgo-logo.webp" },
 ]
 
 export const customer = [

@@ -61,7 +61,7 @@ const Navbar = () => {
     }
 
     return (
-        <header>
+        <>
             {showMyAccount && <MyAccount closeHnadler={myAccountHandler} />}
             <MobileManu closeHnadler={closeHnadler}/>
             <nav className={style["navbar"]}>
@@ -105,7 +105,7 @@ const Navbar = () => {
                 </ul>
 
             </nav>
-            </header>
+            </>
     )
 }
 

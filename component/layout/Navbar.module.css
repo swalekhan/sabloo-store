@@ -212,6 +212,7 @@
     max-width: 80%;
     min-height: 100vh;
     background-color: #fff;
+    box-shadow: 1px 1px 6px 0px #ccc;
 }
 .mobile_header {
     color: #fff;

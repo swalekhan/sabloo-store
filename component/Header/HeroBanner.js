@@ -5,6 +5,7 @@ import style from "./HeroBanner.module.css"
 
 const HeroBanner = ({ items }) => {
     return (
+        <section>
         <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false} showArrows={false}>
             {items?.map((item, i) => (
                 <div key={i} className={style.hero_banner}>
@@ -16,6 +17,7 @@ const HeroBanner = ({ items }) => {
                 </div>
             ))}
         </Carousel>
+        </section>
     )
 }
 

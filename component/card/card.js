@@ -53,7 +53,7 @@ const Card = ({ addCartHandler, ...data }) => {
                         </div>
                         <h2> &#8377;{afterDiscountPrice}</h2>
                     </div>
-                    {findCartItem?.quantity >= 1 ? (<p className={style.item_added}>{findCartItem.quantity} Items present in your cart</p>) : (<h5 className={style.item_added}>MOQ : 1</h5>)}
+                    {findCartItem?.quantity >= 1 ? (<p className={style.item_added}>{findCartItem.quantity} Items in your cart</p>) : (<h5 className={style.item_added}>MOQ : 1</h5>)}
                 </div>
             </div>
 
