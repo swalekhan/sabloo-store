@@ -51,7 +51,7 @@ const arr = [
     { id: 45, title: "TMT" },
     { id: 46, title: "Steel Garter" },
     { id: 47, title: "Steel Angels" },
-    { id: 48, title: "Steel T Iron" }, 
+    { id: 48, title: "Steel T Iron" },
     { id: 49, title: "Paints" },
     { id: 50, title: "Bath and Fitting" },
     { id: 51, title: "Sheets" },
@@ -71,13 +71,20 @@ const Key = ({ results }) => {
 
     return (
         <>
-             <Head>
+            <Head>
                 <title>Sabloo Marble</title>
                 <meta name="description" content="all stuff under one roof" />
             </Head>
 
-            <h2 className='heading'>{router.query.key}</h2>
-            <Cards items={results} />
+            <section>
+                <h2 className='heading'>{router.query.key}</h2>
+                {results.length >= 1 ? (
+                    <Cards items={results} />
+                ) : (
+                    <h2 className="no_data_found">no data Found</h2>
+                )
+                }
+            </section>
         </>
 
     )
@@ -88,14 +95,16 @@ export async function getStaticPaths() {
     const paths = arr.map((item) => ({
         params: { key: item?.title },
     }));
-    return { paths, fallback: true };
+    return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, query }) {
     // Fetch the product data from your API using the ID
-    const response = await fetch(`https://sabloo-store-backend.vercel.app/products/${params.key}`);
-    const results= await response.json();
-
+    const { key } = params || query
+    console.log(key, params, query)
+    const response = await fetch(`https://sabloo-store-backend.vercel.app/products/${key}`);
+    const results = await response.json();
+    
     return { props: { results } };
 }
 
