@@ -8,7 +8,7 @@ import { useSelector } from "react-redux"
 const MobileManu = ({ closeHnadler }) => {
     const {isLogin} = useSelector(state => state.auth)
     return (
-        <div className={style.mobile_manu} onClick={closeHnadler}>
+        <div className={style.mobile_manu} onClick={closeHnadler} id="mobile_menu">
             <div className={style.mobile_manu_inner} onClick={(e) => e.stopPropagation()}>
                 <div className={style.mobile_header}>
                     <div className={style.mobile_header_left}>

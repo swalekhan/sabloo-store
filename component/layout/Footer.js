@@ -90,11 +90,7 @@ const Footer = () => {
             </ul>
 
             <div className={style["legal"]}>
-                <p>&copy; 2019 Something. All rights reserved.</p>
-
-                <div className={style["legal__links"]}>
-                    <span>Made with <span className="heart">♥</span> remotely from Anywhere</span>
-                </div>
+                <p>&copy; 2023 Something. All rights reserved.</p>
             </div>
         </footer>
     )

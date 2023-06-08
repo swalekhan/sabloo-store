@@ -20,8 +20,9 @@
     align-items: center;
 }
 .item_content p {
-    color: #444;
+    color: #666;
     font-size: clamp(14px, 2vw, 17px);
+    margin-top: 5px;
 }
 .Category_img{
     position: relative;
@@ -31,4 +32,10 @@
 .Category img {
     object-fit: cover;
     border-radius: 50%;
+}
+
+@media (max-width:290px){
+    .Category ul {
+        grid-template-columns: repeat(3, 1fr);
+    }   
 }

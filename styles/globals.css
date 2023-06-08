@@ -111,13 +111,13 @@ a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --Heading-color: #555;
   --main-color :rgb(222, 199, 117);
-  /* rgb(222, 199, 117); */
 }
 
 * {
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
+  transition: all .3s ease;
 }
 
 a {
@@ -133,6 +133,17 @@ a {
   color: var(--Heading-color);
   padding-block: 30px;
 }
+.heading::after{
+  display: block;
+  content: "";
+  border-bottom: 4px solid var(--main-color) ;
+  width: 33%;
+  margin-left: 33%;
+  margin-top: 5px;
+  box-shadow: 0px 0px 2px 0px #ccc;
+}
+
+
 /* .................................loading css........................ */
 
 .loading-indicator {
@@ -166,3 +177,13 @@ a {
   }
 }
 
+/* .........................fold phone.................. */
+@media (max-width:290px){
+  .Category_Category__B1LXn ul{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .Navbar_nav_left__pt_WR img {
+    width: auto;
+  }
+}

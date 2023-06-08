@@ -95,6 +95,7 @@
 .item_added{
   margin-top: 5px;
   color:rgb(6, 145, 176);
+  transition: all 0.3s ease;
 }
 .card_footer {
   padding: 2px 0px;
@@ -228,6 +229,7 @@
   .card_header .disccount {
     top: 0px;
     font-size: 12px;
+    border-radius:10px 0px 0px 0px ;
   }
 
   .card_main_top h5 {

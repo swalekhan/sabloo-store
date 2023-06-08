@@ -185,9 +185,16 @@
     .nav_links{
         display: none;
     }
+    .nav_left img {
+        width: 120px;
+    }
 }
 
-
+@media (max-width:290px){
+    .nav_left img {
+        width: auto;
+    }
+}
 
 /* ..................mobile-mune.............................. */
 
@@ -196,9 +203,9 @@
     top: 0%;
     min-height: 100vh;
     width: 100vw;
-    background-color: #0b0b0b6f;
+    transform: translate(-100vw);
     z-index: 5;
-    transition: transform 300ms ease-in;
+    transition: all .3s ease;
 }
 
 .mobile_manu_inner {
@@ -209,7 +216,7 @@
 .mobile_header {
     color: #fff;
     background-color: var(--main-color);
-    padding: 8px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -241,9 +248,9 @@
 
 .mobile_main li {
     display: block;
-    padding: 15px 0px 5px 0px;
+    padding: 20px 0px 20px 0px;
     list-style: none;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 2px solid whitesmoke;
     cursor: pointer;
 }
 
@@ -252,7 +259,9 @@
     text-decoration: none;
     color: inherit;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
 }
 
 .mobile_main a:hover {

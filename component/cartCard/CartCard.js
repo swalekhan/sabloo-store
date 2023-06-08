@@ -16,7 +16,7 @@ const CartCard = ({ items }) => {
     }, [cart])
 
     return (
-        <div className={style.CartCard}>
+        <section className={style.CartCard}>
             <div className={style.CartCard_grid}>
                 {items?.map((item, i) => (
                     <div className={style.CartCard_wrapper} key={i} onClick={() => router.push(`/ProductDetails/${item?._id}`)}>
@@ -25,8 +25,8 @@ const CartCard = ({ items }) => {
                         </div>
 
                         <div className={style.CartCard_main}>
-                            <h4>{item?.name}</h4>
-                            <h5>{item?.brand} | SKU :<span>{item?.model}</span></h5>
+                            <h4>{item?.name.length>=35?`${item?.name?.substring(0,35)}...`:item?.name}</h4>
+                            <h5>{item?.brand} | SKU :<span>{item?.model.length>=10?`${item?.model.substring(0,10)}...`:item?.model}</span></h5>
                             <h6> &#8377;{calDiscount(item?.price, item?.discount)}</h6>
                             <div className={style.main_middle}>
                                 <div className={style.main_input} onClick={(e) => e.stopPropagation()}>
@@ -83,7 +83,7 @@ const CartCard = ({ items }) => {
                     <button onClick={() => alert(totalAmount)}>Checkout</button>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

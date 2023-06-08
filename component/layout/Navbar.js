@@ -13,17 +13,23 @@ import { useRouter } from "next/router"
 import MyAccount from "./myAccount/MyAccount"
 
 const Navbar = () => {
-    const [ShowMobileMenu, setShowMobileMenu] = useState(false)
     const [showMyAccount, setShowMyAccount] = useState(false);
     const { cart } = useSelector(state => state.cart)
     const {isLogin} = useSelector(state => state.auth)
     const router = useRouter()
 
+    // ................mobile_menu- show or hide...................................
     const closeHnadler = (event) => {
-        setShowMobileMenu(!ShowMobileMenu)
+        const mobile_manu = document.getElementById("mobile_menu");
+        mobile_manu.style.transform = "translate(-100vw)"
     }
+    
+   const showHandler = (e) => {
+      const mobile_manu = document.getElementById("mobile_menu");
+      mobile_manu.style.transform = "translate(0vw)"
+   }
 
-    // ....................profile.............................
+    // ....................profile menu - show and hide .............................
     const myAccountHandler = () => {
         if (!isLogin) { //if user login
             router.push("/auth/Signup")
@@ -32,6 +38,7 @@ const Navbar = () => {
             setShowMyAccount(!showMyAccount)
         }
     }
+
     // ........................search handler.............
     const searchHandler = (e) => {
         e.preventDefault()
@@ -41,7 +48,7 @@ const Navbar = () => {
             return
         }
         router.push(`/search/${query}`)
-        e.target.search.value = ""
+        e.target.search.value = "" 
     }
 
     // .........cart_handler.........................
@@ -54,15 +61,14 @@ const Navbar = () => {
     }
 
     return (
-        <>
-            {ShowMobileMenu && <MobileManu closeHnadler={closeHnadler} />}
+        <header>
             {showMyAccount && <MyAccount closeHnadler={myAccountHandler} />}
-
+            <MobileManu closeHnadler={closeHnadler}/>
             <nav className={style["navbar"]}>
                 <div className={style.nav_inner}>
 
                     <div className={style.nav_left}>
-                        <GiHamburgerMenu onClick={() => setShowMobileMenu(!ShowMobileMenu)} />
+                        <GiHamburgerMenu onClick={showHandler} />
                         <Link href="/"><img src="/logo/logo.png.png" /></Link>
                     </div>
 
@@ -99,7 +105,7 @@ const Navbar = () => {
                 </ul>
 
             </nav>
-        </>
+            </header>
     )
 }
 

@@ -14,7 +14,7 @@ const Category = ({ items, title }) => {
                     <li key={i}>
                         <Link href={item.url} className={style.item_content}>
                             <div className={style.Category_img}>
-                                <Image src={item.img} alt={title} fill sizes="(max-width:650px) 100vw, 100vh" />
+                                <Image src={item.img} alt={item?.title} fill sizes="(max-width:650px) 100vw, 100vh" />
                             </div>
                             <p>{item.title}</p>
                         </Link>

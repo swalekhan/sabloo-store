@@ -1,0 +1,16 @@
+
+
+.hero_banner{
+    position: relative;
+    width: 100vw;
+    height: 450px;
+}
+.hero_banner img{
+    width: 100%;
+    height: 100%;
+}
+@media (max-width:600px){
+    .hero_banner{
+        height: 280px;
+    }  
+}
