@@ -58,7 +58,7 @@ const Signup = () => {
                     </div>
 
                     <div className='form-group'>
-                        <input type="text" id='email' name='email' required onChange={changeHandler} value={formData.email} placeholder='Nmail' />
+                        <input type="text" id='email' name='email' required onChange={changeHandler} value={formData.email} placeholder='Email' />
                     </div>
 
                     <div className='form-group'>
