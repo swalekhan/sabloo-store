@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import { postData } from '@/utils/commenFunc/commenFunc'
 
 const Signin = () => {
     const [formData, setFormData] = useState({ email: "" })
@@ -14,26 +15,12 @@ const Signin = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        try {
-            const response = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc", {
-                method: "POST",
-                body: JSON.stringify({ ...formData, requestType: "PASSWORD_RESET" }),
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            })
-            const data = await response.json;
-            if (!response.ok) {
-                throw new Error("somethin went wrong")
-            }
-            if (data && data.error && data.error.message) {
-                alert(data.error.message)
-            } else {
-                alert("A link sent your registered email. Check email")
-            }
 
-        } catch (err) {
-            console.log(err.message);
+        const data = await postData("https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc", { ...formData, requestType: "PASSWORD_RESET" })
+        if (data && data?.error && data?.error?.message) {
+            alert(data.error.message)
+        } else {
+            alert("A link sent your registered email. Check email")
         }
 
         setFormData({ ...formData, email: "" })// empty input...............

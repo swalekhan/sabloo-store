@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { signup } from '@/store/authSlice'
 import Head from 'next/head'
 import Link from 'next/link'
+import { postData } from '@/utils/commenFunc/commenFunc'
 
 const Signin = () => {
     const [formData, setFormData] = useState({ email: "", password: "" })
@@ -19,26 +20,16 @@ const Signin = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        try {
-            let res = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', {
-                method: 'POST',
-                body: JSON.stringify({ ...formData, returnSecureToken: true }),
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            })
 
-            const data = await res?.json()
-            if (data.error && data.error.message) {
-                alert(data.error.message)
-                return;
-            }
-            // .........store data in local storage................
-            localStorage.setItem("token", JSON.stringify({ ...data }));
-            dispatch(signup({ ...data }))
-        } catch (err) {
-            console.log(err)
+        const data = await postData('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', { ...formData, returnSecureToken: true })
+        if (data?.error && data?.error?.message) {
+            alert(data.error.message)
+            return;
         }
+        // .........store data in local storage................
+        localStorage.setItem("token", JSON.stringify({ ...data }));
+        dispatch(signup({ ...data }))
+        
         // .............navigation...........
         router.back("/")
     }
@@ -58,10 +49,10 @@ const Signin = () => {
                     </div>
 
                     <div className='form-group'>
-                        <input type='text' id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Please enter password' />
+                        <input type="password" id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Please enter password' />
                     </div>
 
-                    <button type='submit'>Signin</button>
+                    <button type='submit'>SignIn</button>
 
                     <Link href={'/auth/ForgetPass'} replace className='forgetpass'>Forget Password</Link>
                     <div className='change_form'>

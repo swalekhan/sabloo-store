@@ -12,15 +12,15 @@ const Layout = (props) => {
   const { isLogin } = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
-  // ....................singup.................................................handle_local storege in next js
+  // ....................singup - store localStore data in redux state.................................................handle_local storege in next js
   useEffect(() => {
     dispatch(signup(JSON.parse(localStorage.getItem("token"))))
   }, [])
 
-  // ........getCArtData ...........................
+  // ........getCArtData- fetch data from server ...........................
   useEffect(() => {
     const getData = async () => {
-      if (isLogin) {
+      if (isLogin?.email) {
         const data = await fetchData(`https://sabloo-store-backend.vercel.app/cart/${isLogin?.email?.toString()}`)
         if (data?.data?.cartItems.length >= 1) {  // if new user login then empty array come
           dispatch(repalceData(data?.data?.cartItems)) // cart will not change put request not send.
@@ -32,10 +32,10 @@ const Layout = (props) => {
     getData()
   }, [isLogin])
 
-  // ...............change _cart_data....................
+  // ...............change _cart_data- expact first time, put reques will execute when card data change....................
   useEffect(() => {
     const updateData = async () => {
-      if (isLogin) {
+      if (isLogin?.email) {
         const data = await putData(`https://sabloo-store-backend.vercel.app/cart/${isLogin?.email?.toString()}`, cart)
         console.log(data?.message, "put")
       }

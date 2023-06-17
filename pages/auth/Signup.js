@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { postData } from '@/utils/commenFunc/commenFunc'
 
 const Signup = () => {
-    const [formData, setFormData] = useState({ name: "", email: "", password: "" })
+    const [formData, setFormData] = useState({ displayName: "", email: "", password: "" })
     const router = useRouter()
     const dispatch = useDispatch()
 
@@ -21,12 +21,15 @@ const Signup = () => {
     const submitHandler = async (e) => {
         e.preventDefault()
 
+
+      console.log(formData,"form")
         const data = await postData('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', { ...formData, returnSecureToken: true })
-        if (data.error && data.error.message) {
+        
+        if (data?.error && data?.error?.message) {
             alert(data.error.message)
             return;
         }
-
+      console.log(data,"data")
         // .........store data in local storage................
         localStorage.setItem("token", JSON.stringify({ ...data }));
         dispatch(signup({ ...data }))
@@ -62,10 +65,10 @@ const Signup = () => {
                     </div>
 
                     <div className='form-group'>
-                        <input type='text' id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Password' />
+                        <input type="password" id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Password' />
                     </div>
 
-                    <button type='submit'>Signup</button>
+                    <button type='submit'>SignUp</button>
 
                     <div className='change_form'>
                         <p>Have an account?</p>
