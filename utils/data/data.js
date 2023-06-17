@@ -106,4 +106,6 @@ export const allProductsLink = [
   { id: 54, title: "Plumming" },
   { id: 55, title: "Switch and wire" },
   { id: 56, title: "Tiles" },
+  { id: 57, title: "electricity" },
+  {id:58,title:"Bathroom"},
 ]

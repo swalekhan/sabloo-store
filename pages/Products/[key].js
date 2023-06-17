@@ -37,14 +37,14 @@ export async function getStaticPaths() {
     const paths = allProductsLink.map((item) => ({
         params: { key: item?.title },
     }));
-    return { paths, fallback: false };
+    return { paths, fallback: false};
 }
 
 export async function getStaticProps({ params, query }) {
     // Fetch the product data from your API using the ID
     const { key } = params || query
     const results = await fetchData(`https://sabloo-store-backend.vercel.app/products/${key}`)
-    return { props: { results } };
+    return { props: { results },revalidate: 60, };
 }
 export default Key
 

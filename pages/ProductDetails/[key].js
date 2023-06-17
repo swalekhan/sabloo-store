@@ -150,7 +150,8 @@ export async function getStaticProps({ params }) {
         props: {
             item: data,
             similiarProducts,
-        }
+        },
+        revalidate: 60
     };
 }
 
