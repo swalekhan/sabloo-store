@@ -2,7 +2,7 @@
 
 // ...................home page....................
 export const homeCategory = [
-    { id: 1, title: "Tiles", url: "/Products/Tiles", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJqNDA5NmFpaHNoaXNleHoyZHB3ODVkdjNyMHVkIiwiZmlsZW5hbWUiOiJXb29kZW4gRmxvb3Jpbmcud2VicCIsImNvbnRlbnRfdHlwZSI6ImltYWdlL3dlYnAiLCJibG9iX2tleSI6Imo0MDk2YWloc2hpc2V4ejJkcHc4NWR2M3IwdWQiLCJjb252ZXJ0X3dlYnAiOnRydWV9.jE1C2lD989oNfsKXolW45vhMXJ6394nNhPu3FrjHfI4" },
+    { id: 1, title: "Tiles", url: "/Products/Tiles", img: "/brand/Yale.webp" },
     { id: 1, title: "Paints", url: "/Products/Paints", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJqaWIxb2Jvcnl3anl6ZXoyczU4aXMxOXdvcDRqIiwiZmlsZW5hbWUiOiJQYWludC5wbmciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9wbmciLCJibG9iX2tleSI6ImppYjFvYm9yeXdqeXplejJzNThpczE5d29wNGoiLCJjb252ZXJ0X3dlYnAiOnRydWV9.x3GpveE4aaCYUdJSdIeL-gFJCkZJxy9KBDFTtoht3FQ" },
     { id: 1, title: "Bath&Fitting", url: "/Products/Bathroom", img: "https://d2k503pumj0lc5.cloudfront.net/dalmia/disk?object_token=eyJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJneGFma3ExZWMwN2J1c3dsNWI1cDQ0cDJmazRsIiwiZmlsZW5hbWUiOiJCYXRoIEZpdHRpbmdzLndlYnAiLCJjb250ZW50X3R5cGUiOiJpbWFnZS93ZWJwIiwiYmxvYl9rZXkiOiJneGFma3ExZWMwN2J1c3dsNWI1cDQ0cDJmazRsIiwiY29udmVydF93ZWJwIjp0cnVlfQ.QIc6zgqUmpye4lJSTX5jzWWxe7XjsciH7BSHxe-B_yY" },
     { id: 1, title: "Sheets", url: "/Products/Sheet", img: "/assets/desk6.png.webp" },

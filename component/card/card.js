@@ -36,7 +36,7 @@ const Card = ({ addCartHandler, ...data }) => {
         <div className={style.card_wrapper} onClick={()=>{router.push(`/ProductDetails/${item?._id}`)}}>
             <div className={style.card_mobile}>
                 <div className={style.card_header}>
-                    <img src={item?.imgUrl} alt='pic' />
+                    <img src={item?.imgUrl[0]?item?.imgUrl[0]:'/logo/noImg.png.jpg'} alt='pic' />
                     <h4 className={style.disccount}>{item?.discount >= 1 ? item?.discount + "% OFF" : "new"}</h4>
                 </div>
 

@@ -21,18 +21,23 @@
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    
+}
+.product_img{
+    border: 2px solid whitesmoke !important;
 }
 
 .disccount {
     position: absolute;
-    top: 10px;
-    left: 0px;
+    top: 5px;
+    left: 5px;
     padding: 5px;
     background-color: rgb(17, 169, 220);
     color: #fff;
     border-right: 7px solid #fff;
     border-right-style: double;
     z-index: 1;
+    border-radius: 10px 0px 0px 0px;
 }
 
 .product_main {

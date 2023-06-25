@@ -1,12 +1,16 @@
 
-
-
-
-.customer_story{
+.customer_stories{
     padding: 20px 40px;
     background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhblV0WiTW9WdjNqobarQVlw-TwuYasoFviA&usqp=CAU");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+}
+
+
+.customer_story{
+    margin: 0px 40px;
 }
 .customer_story .quote{
     max-width: 20px;
@@ -53,8 +57,14 @@
     object-fit: cover;
 }
 
-/* @media (min-width:750px){
+@media (max-width:750px){
+    .customer_stories{
+        padding: 0px 0px;
+    }   
+    .customer_content p {
+        font-size: 15px;
+    } 
     .customer_story{
-        width: 400px;
-    }     
-} */
+        margin: 0px 10px;
+    } 
+}

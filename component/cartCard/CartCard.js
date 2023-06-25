@@ -11,6 +11,7 @@ const CartCard = ({ items }) => {
     let { totalAmount, totalQuantity, cart } = useSelector(state => state.cart)
     const router = useRouter()
 
+    // ....................get totalAmount, totalQuantity ......................
     useEffect(() => {
         dispatch(getTotal())
     }, [cart])
@@ -21,7 +22,7 @@ const CartCard = ({ items }) => {
                 {items?.map((item, i) => (
                     <div className={style.CartCard_wrapper} key={i} onClick={() => router.push(`/ProductDetails/${item?._id}`)}>
                         <div className={style.CartCard_header}>
-                            <img src={item?.imgUrl} alt={item?.name} />
+                            <img src={item?.imgUrl[0]?item?.imgUrl[0]:'/logo/noImg.png.jpg'} alt={item?.name} />
                         </div>
 
                         <div className={style.CartCard_main}>

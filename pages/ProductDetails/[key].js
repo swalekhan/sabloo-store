@@ -71,9 +71,9 @@ const Key = ({ item, similiarProducts }) => {
                 <div className="productDetail">
                     <div className="product_header">
                         <Carousel infiniteLoop={true} thumbWidth={90} showArrows={false}>
-                            {item?.imgUrl?.map((e, i) => (
+                            {(item?.imgUrl.length<=0?['/logo/noImg.png.jpg']:item?.imgUrl)?.slice(0,3)?.map((img, i) => (
                                 <div key={i}>
-                                    <img src={e} alt="pic" className="product_img" />
+                                    <img src={img} alt="pic" className="product_img" />
                                 </div>
                             ))}
                         </Carousel>
