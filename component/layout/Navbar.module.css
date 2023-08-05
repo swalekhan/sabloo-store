@@ -4,7 +4,7 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 4px 2px 3px 0px #00000014;
-    z-index: 2;
+    z-index: 9999;
 }
 
 .navbar svg {
@@ -208,7 +208,7 @@
     min-height: 100vh;
     width: 100vw;
     transform: translate(-100vw);
-    z-index: 5;
+    z-index: 999999;
     transition: all .3s ease;
 }
 

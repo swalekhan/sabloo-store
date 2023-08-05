@@ -89,7 +89,7 @@ const Navbar = () => {
                         </div>
                         <div className={style.nav_right_icon} onClick={myAccountHandler}>
                             <FaUserAlt />
-                            <p>Login | sign Up</p>
+                            {!isLogin? <p>Login | sign Up</p>:<p>Accont</p>}
                         </div>
                     </div>
                 </div>

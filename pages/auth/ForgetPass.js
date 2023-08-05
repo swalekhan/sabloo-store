@@ -5,6 +5,7 @@ import { postData } from '@/utils/commenFunc/commenFunc'
 
 const Signin = () => {
     const [formData, setFormData] = useState({ email: "" })
+    const [isLoading, setIsLoading] = useState(false) 
 
     const changeHandler = (e) => {
         setFormData({
@@ -15,8 +16,9 @@ const Signin = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-
+        setIsLoading(true)
         const data = await postData("https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc", { ...formData, requestType: "PASSWORD_RESET" })
+        setIsLoading(false)
         if (data && data?.error && data?.error?.message) {
             alert(data.error.message)
         } else {
@@ -40,7 +42,7 @@ const Signin = () => {
                         <input type="text" id='email' name='email' required onChange={changeHandler} value={formData.email} placeholder='Please enter email' />
                     </div>
 
-                    <button type='submit'>Send Link</button>
+                    <button type='submit'>{!isLoading?"Send Link":"Send Link..."}</button>
 
                     <div className='change_form'>
                         <p>have an account?</p>

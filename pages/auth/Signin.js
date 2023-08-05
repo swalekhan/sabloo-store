@@ -8,6 +8,7 @@ import { postData } from '@/utils/commenFunc/commenFunc'
 
 const Signin = () => {
     const [formData, setFormData] = useState({ email: "", password: "" })
+    const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
     const dispatch = useDispatch()
 
@@ -20,8 +21,9 @@ const Signin = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-
+        setIsLoading(true)
         const data = await postData('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', { ...formData, returnSecureToken: true })
+        setIsLoading(false)
         if (data?.error && data?.error?.message) {
             alert(data.error.message)
             return;
@@ -29,7 +31,7 @@ const Signin = () => {
         // .........store data in local storage................
         localStorage.setItem("token", JSON.stringify({ ...data }));
         dispatch(signup({ ...data }))
-        
+
         // .............navigation...........
         router.back("/")
     }
@@ -52,7 +54,7 @@ const Signin = () => {
                         <input type="password" id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Please enter password' />
                     </div>
 
-                    <button type='submit'>SignIn</button>
+                    <button type='submit'>{!isLoading ? "SignIn" : "SignIn..."}</button>
 
                     <Link href={'/auth/ForgetPass'} replace className='forgetpass'>Forget Password</Link>
                     <div className='change_form'>

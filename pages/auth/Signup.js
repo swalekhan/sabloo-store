@@ -5,11 +5,39 @@ import { signup } from '@/store/authSlice'
 import Head from 'next/head'
 import Link from 'next/link'
 import { postData } from '@/utils/commenFunc/commenFunc'
+// import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 const Signup = () => {
     const [formData, setFormData] = useState({ displayName: "", email: "", password: "" })
+    const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
     const dispatch = useDispatch()
+
+
+    // const provider = new GoogleAuthProvider();
+    // const auth = getAuth();
+
+    // const loginWithGoogle = () => {
+    //     signInWithPopup(auth, provider)
+    //         .then((result) => {
+    //             // This gives you a Google Access Token. You can use it to access the Google API.
+    //             const credential = GoogleAuthProvider.credentialFromResult(result);
+    //             const token = credential.accessToken;
+    //             // The signed-in user info.
+    //             const user = result.user;
+    //             // IdP data available using getAdditionalUserInfo(result)
+    //             // ...
+    //         }).catch((error) => {
+    //             // Handle Errors here.
+    //             const errorCode = error.code;
+    //             const errorMessage = error.message;
+    //             // The email of the user's account used.
+    //             const email = error.customData.email;
+    //             // The AuthCredential type that was used.
+    //             const credential = GoogleAuthProvider.credentialFromError(error);
+    //             // ...
+    //         });
+    // }
 
     const changeHandler = (e) => {
         setFormData({
@@ -20,16 +48,13 @@ const Signup = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-
-
-      console.log(formData,"form")
+        setIsLoading(true)
         const data = await postData('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDZDBnoYIsQENtLozpfIyn-81Z8_zwjHRc', { ...formData, returnSecureToken: true })
-        
+        setIsLoading(false)
         if (data?.error && data?.error?.message) {
             alert(data.error.message)
             return;
         }
-      console.log(data,"data")
         // .........store data in local storage................
         localStorage.setItem("token", JSON.stringify({ ...data }));
         dispatch(signup({ ...data }))
@@ -42,7 +67,7 @@ const Signup = () => {
         heading.split("").map((e, i) => {
             setTimeout(() => {
                 document.getElementById("signup_heading").innerHTML += e
-            }, 100*i)
+            }, 100 * i)
         });
     }, [])
     return (
@@ -68,14 +93,17 @@ const Signup = () => {
                         <input type="password" id='password' name='password' required onChange={changeHandler} value={formData.password} placeholder='Password' />
                     </div>
 
-                    <button type='submit'>SignUp</button>
+                    <button type='submit'>{!isLoading ? "SignUp" : "SignUp..."}</button>
 
                     <div className='change_form'>
                         <p>Have an account?</p>
                         <Link href={'/auth/Signin'} replace >Sign-in</Link>
                     </div>
+                    {/* <div className='with_google' onClick={loginWithGoogle}>
+                        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/753px-Google_%22G%22_Logo.svg.png' alt='google' width="20px" />
+                        <p>Continue with Google</p>
+                    </div> */}
                 </form>
-
 
             </section>
         </>
